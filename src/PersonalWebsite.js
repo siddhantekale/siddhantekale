@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, User, Briefcase, BookOpen, FileText, Linkedin, Twitter } from 'lucide-react';
+import { User, FileText, Linkedin, Twitter } from 'lucide-react';
 import profilePicture from './assets/profile_picture_linkedin.jpeg';
 
 // Custom hook for handling routes
@@ -94,9 +94,6 @@ const PersonalWebsite = () => {
   // Navigation items
   const navItems = [
     { path: '/about', label: 'About', icon: <User className="w-5 h-5" /> },
-    // Commenting out other navigation items for now
-    // { path: '/education', label: 'Education', icon: <BookOpen className="w-5 h-5" /> },
-    // { path: '/career', label: 'Career', icon: <Briefcase className="w-5 h-5" /> },
     { path: '#', label: 'Writings', icon: <FileText className="w-5 h-5" /> },
   ];
   
@@ -106,7 +103,7 @@ const PersonalWebsite = () => {
     if (!validPaths.includes(currentPath)) {
       navigate('/about');
     }
-  }, [currentPath, navigate]);
+  }, [currentPath, navigate, navItems]);
 
   // Render page content based on current path
   const renderContent = () => {
