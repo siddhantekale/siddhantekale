@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { User, FileText, Linkedin, Twitter } from 'lucide-react';
 import profilePicture from './assets/profile_picture_linkedin.jpeg';
 
@@ -38,7 +38,6 @@ const useRouter = () => {
 
 const PersonalWebsite = () => {
   const { currentPath, navigate } = useRouter();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
   // Sample blog posts
   const blogPosts = [
@@ -91,11 +90,11 @@ const PersonalWebsite = () => {
     }
   ];
   
-  // Navigation items
-  const navItems = [
+  // Navigation items wrapped in useMemo to prevent unnecessary re-renders
+  const navItems = useMemo(() => [
     { path: '/about', label: 'About', icon: <User className="w-5 h-5" /> },
     { path: '#', label: 'Writings', icon: <FileText className="w-5 h-5" /> },
-  ];
+  ], []);
   
   // If the current path doesn't match any of our routes, default to /about
   useEffect(() => {
@@ -319,7 +318,6 @@ const PersonalWebsite = () => {
                     if (item.path !== '#') {
                       navigate(item.path);
                     }
-                    setMobileMenuOpen(false);
                   }}
                   className={`px-3 py-2 rounded-md text-sm font-medium ${
                     currentPath === item.path
