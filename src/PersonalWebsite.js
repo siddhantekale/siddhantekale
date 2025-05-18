@@ -151,15 +151,15 @@ const PersonalWebsite = () => {
                   <h2 className="text-2xl font-bold text-gray-900 mb-4">Timeline</h2>
                   <div className="relative border-l-2 border-gray-200 pl-6">
                     {/* Palantir Technologies Header */}
-                    <div className="mb-6">
+                    <div className="mb-4">
                       <div className="absolute -left-3.5 w-7 h-7 bg-blue-100 border-2 border-blue-400 rounded-full flex items-center justify-center">
                         <span className="w-3 h-3 bg-blue-500 rounded-full"></span>
                       </div>
                       <h4 className="text-xl font-bold text-gray-900">Palantir Technologies</h4>
                     </div>
                     {/* 2021-2024 Sub-nodes */}
-                    <div className="mb-10 ml-4">
-                      <span className="text-xs text-gray-500">2021–2024</span>
+                    <div className="mb-6 ml-4">
+                      <span className="text-xs text-gray-500 font-bold">2021–2024 • Palo Alto, CA</span>
                       <div className="space-y-4">
                         <div>
                           <p className="text-gray-700 mb-1">Currently responsible for two key initiatives:</p>
@@ -171,30 +171,30 @@ const PersonalWebsite = () => {
                       </div>
                     </div>
                     {/* 2020-2021 Sub-node */}
-                    <div className="mb-10 ml-4">
-                      <span className="text-xs text-gray-500">2020–2021</span>
+                    <div className="mb-6 ml-4">
+                      <span className="text-xs text-gray-500 font-bold">2020–2021 • London, UK</span>
                       <p className="text-gray-700 mb-1">Developed applications for the NHS at the brink of and through COVID-19 that allowed for equitable allocation of ICU and PPE equipment.</p>
                     </div>
                     {/* 2019-2020 Sub-node */}
-                    <div className="mb-10 ml-4">
-                      <span className="text-xs text-gray-500">2019–2020</span>
+                    <div className="mb-6 ml-4">
+                      <span className="text-xs text-gray-500 font-bold">2019–2020 • Palo Alto, CA</span>
                       <p className="text-gray-700 mb-1">Developed User applications that are currently thwarting nation state cyber-security attacks.</p>
                       <p className="text-gray-700 mb-1">Wrote data pipelines and models that detected fraud amongst trillion row transaction datasets.</p>
                     </div>
                     {/* Digital Control Inc. Header */}
-                    <div className="mb-6">
+                    <div className="mb-4">
                       <div className="absolute -left-3.5 w-7 h-7 b rounded-full flex items-center justify-center">
                         <span className="w-3 h-3 bg-green-500 rounded-full"></span>
                       </div>
                       <h4 className="text-xl font-bold text-gray-900">Digital Control Inc.</h4>
                     </div>
                     {/* 2018-2019 Sub-node */}
-                    <div className="mb-10 ml-4">
-                      <span className="text-xs text-gray-500">2018–2019</span>
+                    <div className="mb-6 ml-4">
+                      <span className="text-xs text-gray-500 font-bold">2018–2019 • Seattle, WA</span>
                       <p className="text-gray-700 mb-1">Programmed a custom transmitter / receiver for directional drilling.</p>
                     </div>
                     {/* Helitrak Inc. Header */}
-                    <div className="mb-6">
+                    <div className="mb-4">
                       <div className="absolute -left-3.5 w-7 h-7 rounded-full flex items-center justify-center">
                         <span className="w-3 h-3 bg-green-500 rounded-full"></span>
                       </div>
@@ -202,7 +202,7 @@ const PersonalWebsite = () => {
                     </div>
                     {/* 2017-2018 Sub-node */}
                     <div className="ml-4">
-                      <span className="text-xs text-gray-500">2017–2018</span>
+                      <span className="text-xs text-gray-500 font-bold">2017–2018 • Gig Harbor, WA</span>
                       <p className="text-gray-700 mb-1">Programmed Autopilots and Safety Trigger for the Collective for R22 and R44 Helicopters.</p>
                     </div>
                   </div>
