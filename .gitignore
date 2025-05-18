@@ -43,3 +43,9 @@ yarn-error.log*
 
 # Yarn Integrity file
 .yarn-integrity
+
+# SSH keys
+eval "$(ssh-agent -s)"
+eval "$(ssh-agent -s)".pub
+*.pem
+*.key
