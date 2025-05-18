@@ -162,10 +162,11 @@ const PersonalWebsite = () => {
                       <span className="text-xs text-gray-500">2021–2024</span>
                       <div className="space-y-4">
                         <div>
-                          <p className="text-gray-700 mb-1">Currently lead a team of engineers and compliance specialists who develop Palantir's GxP platform for clinical use-cases ranging from site-selection to RWE analysis.</p>
-                        </div>
-                        <div>
-                          <p className="text-gray-700 mb-1">Currently lead a team of extremely talented architects and account managers to build product demos (Titan Industries) that show end to end product capability for Palantir's AI Platform.</p>
+                          <p className="text-gray-700 mb-1">Currently responsible for two key initiatives:</p>
+                          <div className="ml-4">
+                            <p className="text-gray-700 mb-1">• Leading a team of engineers and compliance specialists to develop Palantir's GxP platform for clinical use-cases ranging from site-selection to RWE analysis.</p>
+                            <p className="text-gray-700 mb-1">• Leading a team of extremely talented architects to build product demos that show end to end product capability for Palantir's AI Platform.</p>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -182,7 +183,7 @@ const PersonalWebsite = () => {
                     </div>
                     {/* Digital Control Inc. Header */}
                     <div className="mb-6">
-                      <div className="absolute -left-3.5 w-7 h-7 bg-green-100 border-2 border-green-400 rounded-full flex items-center justify-center">
+                      <div className="absolute -left-3.5 w-7 h-7 b rounded-full flex items-center justify-center">
                         <span className="w-3 h-3 bg-green-500 rounded-full"></span>
                       </div>
                       <h4 className="text-xl font-bold text-gray-900">Digital Control Inc.</h4>
@@ -194,8 +195,8 @@ const PersonalWebsite = () => {
                     </div>
                     {/* Helitrak Inc. Header */}
                     <div className="mb-6">
-                      <div className="absolute -left-3.5 w-7 h-7 bg-yellow-100 border-2 border-yellow-400 rounded-full flex items-center justify-center">
-                        <span className="w-3 h-3 bg-yellow-500 rounded-full"></span>
+                      <div className="absolute -left-3.5 w-7 h-7 rounded-full flex items-center justify-center">
+                        <span className="w-3 h-3 bg-green-500 rounded-full"></span>
                       </div>
                       <h4 className="text-xl font-bold text-gray-900">Helitrak Inc.</h4>
                     </div>
