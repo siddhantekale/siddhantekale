@@ -177,7 +177,7 @@ const PersonalWebsite = () => {
                     </div>
                     {/* 2019-2020 Sub-node */}
                     <div className="mb-6 ml-4">
-                      <span className="text-xs text-gray-500 font-bold">2019–2020 • Palo Alto, CA</span>
+                      <span className="text-xs text-gray-500 font-bold">2019–2020 • New York, NY</span>
                       <p className="text-gray-700 mb-1">Developed User applications that are currently thwarting nation state cyber-security attacks.</p>
                       <p className="text-gray-700 mb-1">Wrote data pipelines and models that detected fraud amongst trillion row transaction datasets.</p>
                     </div>
