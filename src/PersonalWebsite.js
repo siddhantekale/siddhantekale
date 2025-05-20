@@ -42,19 +42,38 @@ const PersonalWebsite = () => {
   // Sample blog posts
   const blogPosts = [
     {
+      id: 'running-cross-functional-teams',
+      title: "Running (Serving) Cross Functional Teams",
+      date: "March 2024",
+      summary: "Competence matters. Cultural relativity matters.",
+      content: `A few years into my career, I was asked to build an automated evidence generator for ensuring and proving software compliance for pharmaceutical use cases. As a software engineer, turned architect, turned product manager, I obviously attributed success as 100% test coverage. "I was incorrect" would be an understatement. There is a whole industry built around this and although it is filled with well-meaning people, it breeds bloat if unchecked. With that naive assumtion, my team partner and I set out on a quest to build the best testing framework there is to gather insurmountable amount of evidence against the checks enlisted in the CFRs. Despite gathering all the evidence in the world and testing every nook and cranny of the software, during many audits, this fell on deaf ears.
+
+The tests were good, but the reason for failure was that we hadn't satisfied the lateral categories. The SOPs, the penetration testing juxtaposed with the integration tests, the tests for "flows", the design spec commitments, among other things. Fortunately, I quickly realized that the very essence of a compliance audit in the pharmaceutical space, although seemingly straightforward requires rigor that extends beyond "testing" the software. This rigor first needs to take into account that engineering alone isn't enough. The reliance on compliance specialists is the pre-cursor to curating what's needed to set this up for success. Although the goal is the same, people in these organizations operate differently. The reason is the concerns are different and they each have their place. Understanding this and quickly and catering to become a translator between these organizations led to the genesis of what is a successful program today.
+
+Configuring this system of specialists to collaborate generally needs harmony that can only be achieved by having highly competent, low ego and adaptable people. Although this "special projects" team I was curating was meant to be lean, the lean team needed high degree of agency and varying skillsets. That brings me to the second learning, i.e. recruit top tier talent and rely on all levers to ensure you have the right people for the job. It's some function of high slope, low ego and extreme agency. Since my team was distributed globally, this further meant that delineating responsibility while encouraging a collaborative environment was yet another precursor to success.
+
+I'll keep this short for now, but a high performing team is generally one that's cross-functional, with people of similar virtues but different skillsets. To engage them productively it requires a distinctive strokes and sometimes different brushes. This journey of learning was a precondition to having delivered successful projects over the past few years.`
+    },
+    {
+      id: 'understanding-mcp',
       title: "Understanding MCP in Large Language Models",
       date: "April 15, 2025",
-      summary: "Better to just use APIs?"
+      summary: "Better to just use APIs?",
+      content: "Coming soon..."
     },
     {
+      id: 'router-llm',
       title: "RouterLLM: The Next Step in Efficient Language Models",
       date: "March 22, 2025",
-      summary: "An analysis of how RouterLLM architecture is changing the way we think about model efficiency and routing capabilities."
+      summary: "An analysis of how RouterLLM architecture is changing the way we think about model efficiency and routing capabilities.",
+      content: "Coming soon..."
     },
     {
+      id: 'blueprint-components',
       title: "Blueprint Components in React: A Game Changer",
       date: "February 10, 2025",
-      summary: "How Blueprint components have transformed my React development workflow and improved UI consistency."
+      summary: "How Blueprint components have transformed my React development workflow and improved UI consistency.",
+      content: "Coming soon..."
     }
   ];
 
@@ -93,19 +112,56 @@ const PersonalWebsite = () => {
   // Navigation items wrapped in useMemo to prevent unnecessary re-renders
   const navItems = useMemo(() => [
     { path: '/about', label: 'About', icon: <User className="w-5 h-5" /> },
-    { path: '#', label: 'Writings', icon: <FileText className="w-5 h-5" /> },
+    { path: '/writings', label: 'Writings', icon: <FileText className="w-5 h-5" /> },
   ], []);
   
   // If the current path doesn't match any of our routes, default to /about
   useEffect(() => {
     const validPaths = navItems.map(item => item.path);
-    if (!validPaths.includes(currentPath)) {
+    const articleMatch = currentPath.match(/^\/writings\/(.+)$/);
+    
+    // Allow article paths to pass through
+    if (!validPaths.includes(currentPath) && !articleMatch) {
       navigate('/about');
     }
   }, [currentPath, navigate, navItems]);
 
   // Render page content based on current path
   const renderContent = () => {
+    // Check if the current path is an article
+    const articleMatch = currentPath.match(/^\/writings\/(.+)$/);
+    if (articleMatch) {
+      const articleId = articleMatch[1];
+      const article = blogPosts.find(post => post.id === articleId);
+      
+      if (article) {
+        return (
+          <div className="bg-white shadow rounded-lg p-6 max-w-3xl mx-auto">
+            <div className="mb-8">
+              {/* <button
+                onClick={() => navigate('/writings')}
+                className="text-gray-600 hover:text-gray-900 flex items-center mb-4"
+              >
+                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                Back to Writings
+              </button> */}
+              <h1 className="text-3xl font-bold text-gray-900 mb-4">{article.title}</h1>
+              <p className="text-gray-500 mb-8">{article.date}</p>
+              <div className="prose prose-lg max-w-none">
+                {article.content.split('\n\n').map((paragraph, index) => (
+                  <p key={index} className="mb-4 text-gray-700 leading-relaxed">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </div>
+          </div>
+        );
+      }
+    }
+
     switch (currentPath) {
       case '/about':
         return (
@@ -119,7 +175,7 @@ const PersonalWebsite = () => {
                 <div>
                   <h2 className="text-2xl font-bold text-gray-900 mb-4">About Me</h2>
                   <p className="text-gray-700 mb-4">
-                    Hello! I'm Sid. Engineer by discipline, Architect at Palantir. Eternally aching to build. Opinions reflected here are all personal.
+                    Hello! I'm Sid. Engineer by discipline, Architect (worn many hats) at Palantir. Eternally aching to build. Opinions reflected here are all personal.
                   </p>
                 </div>
                 {/* Writings Row */}
@@ -127,19 +183,34 @@ const PersonalWebsite = () => {
                   <h3 className="text-xl font-bold text-gray-900 mb-4">Writings</h3>
                   <div className="space-y-4">
                     <div className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                      <h4 className="text-lg font-semibold text-gray-900 mb-2">Running (Serving) Cross Functional Teams</h4>
+                      <p className="text-sm text-gray-500 mb-2">Competence matters. Cultural relativity matters.</p>
+                      <button 
+                        onClick={() => navigate('/writings/running-cross-functional-teams')}
+                        className="text-blue-500 hover:underline"
+                      >
+                        Read More
+                      </button>
+                    </div>
+                    <div className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
                       <h4 className="text-lg font-semibold text-gray-900 mb-2">To MCP or not MCP</h4>
                       <p className="text-sm text-gray-500 mb-2">Better to just use APIs?</p>
-                      <a href="/writings" className="text-blue-500 hover:underline">Read More</a>
+                      <button 
+                        onClick={() => navigate('/writings/understanding-mcp')}
+                        className="text-blue-500 hover:underline"
+                      >
+                        Read More
+                      </button>
                     </div>
                     <div className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
                       <h4 className="text-lg font-semibold text-gray-900 mb-2">Good to Great - Product</h4>
                       <p className="text-sm text-gray-500 mb-2">Iteration over planning. Empirical over Abstract</p>
-                      <a href="/writings" className="text-blue-500 hover:underline">Read More</a>
-                    </div>
-                    <div className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
-                      <h4 className="text-lg font-semibold text-gray-900 mb-2">Running (Serving) Cross Functional Teams</h4>
-                      <p className="text-sm text-gray-500 mb-2">Competence matters. Cultural relativity matters.</p>
-                      <a href="/writings" className="text-blue-500 hover:underline">Read More</a>
+                      <button 
+                        onClick={() => navigate('/writings/good-to-great')}
+                        className="text-blue-500 hover:underline"
+                      >
+                        Read More
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -263,7 +334,10 @@ const PersonalWebsite = () => {
                   <p className="text-sm text-gray-500 mb-4">{post.date}</p>
                   <div className="border-t border-gray-200 my-4"></div>
                   <p className="text-gray-700 mb-4">{post.summary}</p>
-                  <button className="px-4 py-2 border border-gray-800 text-sm font-medium rounded-md text-gray-800 bg-white hover:bg-gray-50">
+                  <button 
+                    onClick={() => navigate(`/writings/${post.id || '#'}`)}
+                    className="px-4 py-2 border border-gray-800 text-sm font-medium rounded-md text-gray-800 bg-white hover:bg-gray-50"
+                  >
                     Read More
                   </button>
                 </div>
