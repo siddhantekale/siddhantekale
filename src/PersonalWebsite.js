@@ -184,16 +184,30 @@ Lesson learned: iteration >> planning. Do, think less (not saying don't think bu
               <h1 className="text-3xl font-bold text-gray-900 mb-4">{article.title}</h1>
               <p className="text-gray-500 mb-8">{article.date}</p>
               <div className="prose prose-lg max-w-none">
-                {article.content.split('\n\n').map((paragraph, index) => (
-                  <p key={index} className="mb-4 text-gray-700 leading-relaxed">
-                    {paragraph.split(/(\*\*.*?\*\*)/).map((part, partIndex) => {
-                      if (part.startsWith('**') && part.endsWith('**')) {
-                        return <strong key={partIndex}>{part.slice(2, -2)}</strong>;
-                      }
-                      return part;
-                    })}
-                  </p>
-                ))}
+                {article.content.split('\n\n').map((paragraph, index) => {
+                  // Check if the paragraph starts with a quote
+                  if (paragraph.startsWith('"') && paragraph.includes('" - ')) {
+                    const [quote, author] = paragraph.split('" - ');
+                    return (
+                      <blockquote key={index} className="border-l-4 border-gray-300 pl-4 italic text-gray-700 mb-4">
+                        <p className="mb-2">{quote}"</p>
+                        <footer className="text-gray-500">- {author}</footer>
+                      </blockquote>
+                    );
+                  }
+                  
+                  // Regular paragraph rendering
+                  return (
+                    <p key={index} className="mb-4 text-gray-700 leading-relaxed">
+                      {paragraph.split(/(\*\*.*?\*\*)/).map((part, partIndex) => {
+                        if (part.startsWith('**') && part.endsWith('**')) {
+                          return <strong key={partIndex}>{part.slice(2, -2)}</strong>;
+                        }
+                        return part;
+                      })}
+                    </p>
+                  );
+                })}
               </div>
             </div>
           </div>
