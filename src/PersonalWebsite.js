@@ -233,7 +233,7 @@ Lesson learned: iteration >> planning. Do, think less (not saying don't think bu
                 </div>
                 {/* Writings Row */}
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">Writings</h3>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">Featured Writings</h3>
                   <div className="space-y-4">
                     <div className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
                       <h4 className="text-lg font-semibold text-gray-900 mb-2">Conducting Meetings</h4>
@@ -475,18 +475,6 @@ Lesson learned: iteration >> planning. Do, think less (not saying don't think bu
       <main className="max-w-6xl mx-auto px-4 py-8">
         {renderContent()}
       </main>
-
-      {/* Footer */}
-      <footer className="bg-white border-t border-gray-200 py-8 mt-8">
-        <div className="max-w-6xl mx-auto px-4 text-center">
-          <p className="text-gray-500">
-            © {new Date().getFullYear()} Your Name. All rights reserved.
-          </p>
-          <p className="text-gray-500 mt-1">
-            Built with React and Tailwind CSS
-          </p>
-        </div>
-      </footer>
     </div>
   );
 };
