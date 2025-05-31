@@ -223,7 +223,7 @@ Lesson learned: iteration >> planning. Do, think less (not saying don't think bu
                   <div className="space-y-4">
                     <div className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
                       <h4 className="text-lg font-semibold text-gray-900 mb-2">Conducting Meetings</h4>
-                      <p className="text-sm text-gray-500 mb-2">Leadership is about organizing, planning, and directing vision while embracing malleability.</p>
+                      <p className="text-sm text-gray-500 mb-2">Directive but malleable.</p>
                       <button 
                         onClick={() => navigate('/writings/conducting-meetings')}
                         className="text-blue-500 hover:underline"
