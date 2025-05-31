@@ -45,7 +45,7 @@ const PersonalWebsite = () => {
       id: 'conducting-meetings',
       title: "Conducting Meetings",
       date: "April 2024",
-      summary: "Leadership is about organizing, planning, and directing vision while embracing malleability.",
+      summary: "Directive but malleable.",
       content: `"We can do noble acts without ruling earth and sea; for even with moderate advantages one can act excellently." - Aristotle
 
 I was trying to bring together a cross-functional group of engineers, compliance managers, a few senior director type personas in a room to agree on the execution of a fairly complex project. Being a newly "promoted" technical lead of a fairly large group, I was thrilled to "lead" the meeting. I spent about 25 minutes of the 30 minute call soliciting feedback on the design and to the whole group's dismay, we ended up with zero artifacts of substance.
