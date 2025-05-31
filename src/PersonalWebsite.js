@@ -44,7 +44,7 @@ const PersonalWebsite = () => {
     {
       id: 'conducting-meetings',
       title: "Conducting Meetings",
-      date: "April 2024",
+      date: "May 2025",
       summary: "Directive but malleable.",
       content: `"We can do noble acts without ruling earth and sea; for even with moderate advantages one can act excellently." - Aristotle
 
@@ -61,7 +61,7 @@ It was uncomfortable at times, because by virtue of having cross-functionality a
     {
       id: 'running-cross-functional-teams',
       title: "Running (Serving) Cross Functional Teams",
-      date: "March 2024",
+      date: "April 2025",
       summary: "Competence matters. Cultural relativity matters.",
       content: `A few years into my career, I was asked to build an automated evidence generator for ensuring and proving software compliance for pharmaceutical use cases. As a software engineer turned architect turned product manager, I obviously attributed success to 100% test coverage. "I was incorrect" would be an understatement. There is a whole industry built around this and although it is filled with well-meaning people, it breeds bloat if unchecked. With that naive assumption, my team partner and I set out on a quest to build the best testing framework there is to gather insurmountable amounts of evidence against the checks enlisted in the CFRs. Despite gathering all the evidence in the world and testing every nook and cranny of the software, during many audits, these fell on deaf ears.
 
@@ -74,7 +74,7 @@ I'll keep this short for now, but a high performing team is generally one that's
     {
       id: 'good-to-great',
       title: "Good to Great - Product",
-      date: "March 2024",
+      date: "January 2025",
       summary: "Iteration over planning. Empirical over Abstract",
       content: `"The great doers are also the great thinkers" - Steve Jobs
 
