@@ -44,8 +44,8 @@ const PersonalWebsite = () => {
     {
       id: 'conducting-meetings',
       title: "Conducting Meetings",
-      date: "January 2025",
-      summary: "Directing while being malleability. Golden Mean",
+      date: "April 2024",
+      summary: "Leadership is about organizing, planning, and directing vision while embracing malleability.",
       content: `"We can do noble acts without ruling earth and sea; for even with moderate advantages one can act excellently." - Aristotle
 
 I was trying to bring together a cross-functional group of engineers, compliance managers, a few senior director type personas in a room to agree on the execution of a fairly complex project. Being a newly "promoted" technical lead of a fairly large group, I was thrilled to "lead" the meeting. I spent about 25 minutes of the 30 minute call soliciting feedback on the design and to the whole group's dismay, we ended up with zero artifacts of substance.
@@ -61,7 +61,7 @@ It was uncomfortable at times, because by virtue of having cross-functionality a
     {
       id: 'running-cross-functional-teams',
       title: "Running (Serving) Cross Functional Teams",
-      date: "October 2024",
+      date: "March 2024",
       summary: "Competence matters. Cultural relativity matters.",
       content: `A few years into my career, I was asked to build an automated evidence generator for ensuring and proving software compliance for pharmaceutical use cases. As a software engineer turned architect turned product manager, I obviously attributed success to 100% test coverage. "I was incorrect" would be an understatement. There is a whole industry built around this and although it is filled with well-meaning people, it breeds bloat if unchecked. With that naive assumption, my team partner and I set out on a quest to build the best testing framework there is to gather insurmountable amounts of evidence against the checks enlisted in the CFRs. Despite gathering all the evidence in the world and testing every nook and cranny of the software, during many audits, these fell on deaf ears.
 
@@ -74,7 +74,7 @@ I'll keep this short for now, but a high performing team is generally one that's
     {
       id: 'good-to-great',
       title: "Good to Great - Product",
-      date: "June 2024",
+      date: "March 2024",
       summary: "Iteration over planning. Empirical over Abstract",
       content: `"The great doers are also the great thinkers" - Steve Jobs
 
@@ -186,7 +186,12 @@ Lesson learned: iteration >> planning. Do, think less (not saying don't think bu
               <div className="prose prose-lg max-w-none">
                 {article.content.split('\n\n').map((paragraph, index) => (
                   <p key={index} className="mb-4 text-gray-700 leading-relaxed">
-                    {paragraph}
+                    {paragraph.split(/(\*\*.*?\*\*)/).map((part, partIndex) => {
+                      if (part.startsWith('**') && part.endsWith('**')) {
+                        return <strong key={partIndex}>{part.slice(2, -2)}</strong>;
+                      }
+                      return part;
+                    })}
                   </p>
                 ))}
               </div>
