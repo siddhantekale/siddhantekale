@@ -42,9 +42,26 @@ const PersonalWebsite = () => {
   // Sample blog posts
   const blogPosts = [
     {
+      id: 'conducting-meetings',
+      title: "Conducting Meetings",
+      date: "January 2025",
+      summary: "Directing while being malleability. Golden Mean",
+      content: `"We can do noble acts without ruling earth and sea; for even with moderate advantages one can act excellently." - Aristotle
+
+I was trying to bring together a cross-functional group of engineers, compliance managers, a few senior director type personas in a room to agree on the execution of a fairly complex project. Being a newly "promoted" technical lead of a fairly large group, I was thrilled to "lead" the meeting. I spent about 25 minutes of the 30 minute call soliciting feedback on the design and to the whole group's dismay, we ended up with zero artifacts of substance.
+
+I thought I did everything right, prepared the deck, put together some squiggly lines of architecture, knew the technical details in and out, knew what questions to seed the conversation with, among other things. Another unfortunate bit here was that I also left the meeting elated, thinking I had clarified all doubts. Few minutes, after the call I realized I had done nothing that would move the needle on the project. The architecture remained unapproved, the stakeholders didn't know what they would be doing in service of this project, and we had philosophical notes from everyone that led to zero change of state, now or in the future. The Platonian objective had prevailed.
+
+A good friend, mentor, manager and advisor of mine who fortunately (thank all the lords!) attended that call sent me a quick fire email of critical feedback right after. I will be grateful to him for life for allowing me to see this shortcoming and giving me arguably the most important skill in leadership. His feedback was and I'm paraphrasing A LOT because it was layered, "Knowing **when and how** to seek advise is **equally if not more** important than who to seek advise from. As a leader, in a fairly large meeting, the role isn't to capitulate into win-win games. It's to organize, plan, and then direct the vision that you've pre-deliberated on. It also does not mean take a dictatorial stance, it's embracing malleability, while being directive. That meeting failed to achieve the objective i.e. the approval on the execution and tactical actions for the people involved. The process will now elongate into individually persuading folks and then corralling opinions yet again."
+
+This feedback didn't sting (a masterclass in giving feedback, credit to him), it pushed me to think harder before these kinds of future meetings. I eventually got good at it. I started by setting the tone, defining macro-objectives without sounding dictatorial, and kept reiterating the tactical action items that needed to be worked on. I solicited feedback and approval from the lens of concluding micro-objectives and ensured that the folks involved had accepted (sometimes uncomfortably) the piece that they needed to contribute. Many times, there were debates and I ensured that there was malleability at accepting different ways of doing things, as long as the goal post and timelines didn't change. There were disagreements on goal settings too, and that allowed us to change course before proceeding into the meeting, when reasonable.
+
+It was uncomfortable at times, because by virtue of having cross-functionality and differing incentives, there will always be times of disagreement on the micro-objectives. If you've done a good job of defining and agreeing on the big picture, you can move forward without being happy (short term) in service of the larger outcome. In high performing organizations, most people are dealing with a large factorial of things and don't have the brain-space to contribute to your objective in a manner that'll guarantee convergence. That onus lies on you, the leader of that consortium.`
+    },
+    {
       id: 'running-cross-functional-teams',
       title: "Running (Serving) Cross Functional Teams",
-      date: "March 2024",
+      date: "October 2024",
       summary: "Competence matters. Cultural relativity matters.",
       content: `A few years into my career, I was asked to build an automated evidence generator for ensuring and proving software compliance for pharmaceutical use cases. As a software engineer turned architect turned product manager, I obviously attributed success to 100% test coverage. "I was incorrect" would be an understatement. There is a whole industry built around this and although it is filled with well-meaning people, it breeds bloat if unchecked. With that naive assumption, my team partner and I set out on a quest to build the best testing framework there is to gather insurmountable amounts of evidence against the checks enlisted in the CFRs. Despite gathering all the evidence in the world and testing every nook and cranny of the software, during many audits, these fell on deaf ears.
 
@@ -57,7 +74,7 @@ I'll keep this short for now, but a high performing team is generally one that's
     {
       id: 'good-to-great',
       title: "Good to Great - Product",
-      date: "March 2024",
+      date: "June 2024",
       summary: "Iteration over planning. Empirical over Abstract",
       content: `"The great doers are also the great thinkers" - Steve Jobs
 
@@ -199,6 +216,16 @@ Lesson learned: iteration >> planning. Do, think less (not saying don't think bu
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 mb-4">Writings</h3>
                   <div className="space-y-4">
+                    <div className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                      <h4 className="text-lg font-semibold text-gray-900 mb-2">Conducting Meetings</h4>
+                      <p className="text-sm text-gray-500 mb-2">Leadership is about organizing, planning, and directing vision while embracing malleability.</p>
+                      <button 
+                        onClick={() => navigate('/writings/conducting-meetings')}
+                        className="text-blue-500 hover:underline"
+                      >
+                        Read More
+                      </button>
+                    </div>
                     <div className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
                       <h4 className="text-lg font-semibold text-gray-900 mb-2">Running (Serving) Cross Functional Teams</h4>
                       <p className="text-sm text-gray-500 mb-2">Competence matters. Cultural relativity matters.</p>
