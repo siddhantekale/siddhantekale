@@ -7,6 +7,12 @@ const useRouter = () => {
   // Get initial path from window location or default to '/about'
   const getInitialPath = () => {
     if (typeof window !== 'undefined') {
+      // Handle the special GitHub Pages redirect
+      const search = window.location.search;
+      if (search && search[1] === '/') {
+        const decoded = search.slice(1).split('&').map(s => s.replace(/~and~/g, '&')).join('?');
+        return decoded;
+      }
       const path = window.location.pathname;
       return path === '/' ? '/about' : path;
     }
