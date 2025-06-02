@@ -42,6 +42,23 @@ const PersonalWebsite = () => {
   // Sample blog posts
   const blogPosts = [
     {
+      id: 'receiving-feedback',
+      title: "Receiving Feedback",
+      date: "May 2025",
+      summary: "The art of filtering feedback and knowing when to push back.",
+      content: `"It is clear, then, from what has been said, that it is not possible to be good in the strict sense without practical wisdom, nor practically wise without moral virtue." - Aristotle
+
+I was due to give my first demo on some complex technical tools to a group of 15 experts in that domain. I prepared "just enough", jumped on the call with equal parts euphoria and equal parts nervousness. The call started, the nerves kicked in, and it was a, to put it lightly, a below average demo. My audience left unimpressed. I know exactly where I went wrong. To top it all, it was my first demo and I had setup myself up for a harsh critique by my colleagues (fair). 
+
+My reflection was rather quick and I owned up to it on our internal group chat. I had two colleagues, one much younger, another much older. The older one assuming leadership responsibility (fairly), took this as an opportunity to get on a call together. I'm paraphrasing his words "Sid, you messed up. You should have been better prepared. I know you admitted to this already, but this looks really bad." I acknowledged he was right, and said I'll do better next time and roughly talked through a plan. He spent ten minutes after that virtue signaling. Because, I was in a vulnerable state, I ended up capitulating to his continued hurtful remarks feeling "I needed this". The call ended, I was disturbed throughout the day. The next day, I got a call from the younger colleague. His wisdom is the essence behind why I'm writing this. 
+
+He said, "Sid, you were wrong to have not prepared and I have the same feedback on that front. Your self-admission right after and specific propositions to fix this were "more than enough". You want to improve, and you will. Cut yourself some slack, improve and nail it. This call isn't about feedback, I wanted to tell you that you should assess who's giving feedback and know how to accept and how to draw lines where people cross boundaries. The senior colleague on the call yesterday was feeling good about putting you down, and you didn't realize this. There are many such bad actors in the corporate environment. You admitted your error, the consequences were reparable, and you took feedback and provided an action plan. The virtue signaling at the end was a reflection of the senior colleague's ego and in all honesty malicious behavior. The malice there was to bring you down, and feel good about being "an advisor". You need to step out of this frame of overt submissiveness." The doctrine of the golden mean proved right yet again. I realized he was right, accepting and working on feedback was important, but if someone tried to bring you down with "feedback" being the means, you need to filter and in when possible push back on it. I had spent years in "impostor syndrome" putting myself down on a single piece of critical feedback, reassessing every move of mine. This had to stop. It did and I retained the ability to constructively accept and work on critique.
+
+With that experience, I got better at the art of the demo, but also at the art of receiving feedback. I mentally started to curate a list of people who gave feedback from a lens of enabling growth. I listened to them with intent. That intent, tactically, came across as quick and actionable feedback, very critical at times, but aimed to improve. I flourished as a result of those people and I hold them very dear to my heart. 
+
+The virtue signalers also got into a list of people whose words I passed through high-pass filters. In cases where ruffling feathers would prove detrimental, I ignored their words and very indirectly let them know their place. I actively found ways to cease working with them. In some cases where I had the right authority, I pushed back, so others who were like me would be spared that vicious cycle of self-doubt. I also made it a point to pay forward that young colleague's wisdom, and held many such meetings over the years where I hope the people I intended to help have grown out of the frame of unnecessary capitulation, but still retained the critical ability to accept and work on genuine feedback. There is obviously nuance to how to handle people and situations like these, but the lesson I've learned is that intention of the counselor is as important as the counsel itself. Since that time, I've gone a step further, I've also learnt the art of distilling feedback from the virtue signalers and filter out the rest.`
+    },
+    {
       id: 'conducting-meetings',
       title: "Conducting Meetings",
       date: "May 2025",
@@ -235,6 +252,16 @@ Lesson learned: iteration >> planning. Do, think less (not saying don't think bu
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 mb-4">Featured Writings</h3>
                   <div className="space-y-4">
+                    <div className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                      <h4 className="text-lg font-semibold text-gray-900 mb-2">Receiving Feedback</h4>
+                      <p className="text-sm text-gray-500 mb-2">The art of filtering feedback and knowing when to push back.</p>
+                      <button 
+                        onClick={() => navigate('/writings/receiving-feedback')}
+                        className="text-blue-500 hover:underline"
+                      >
+                        Read More
+                      </button>
+                    </div>
                     <div className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
                       <h4 className="text-lg font-semibold text-gray-900 mb-2">Conducting Meetings</h4>
                       <p className="text-sm text-gray-500 mb-2">Directive but malleable.</p>
