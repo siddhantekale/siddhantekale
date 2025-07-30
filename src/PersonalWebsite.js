@@ -48,6 +48,27 @@ const PersonalWebsite = () => {
   // Sample blog posts
   const blogPosts = [
     {
+      id: 'tell-me-about-yourself',
+      title: "Tell me about yourself",
+      date: "Jul 2025",
+      summary: "How to craft a thoughtful and brief response to the most common interview question.",
+      content: `"Brevity is the soul of wit" - William Shakespeare
+
+It's easy to fall into a ramble of talking about everything or.. the equally worse, say nothing at all, when asked this question. It comes up in many contexts: when making a new friend, going on a first date, or during an interview. I'm going to focus this piece in the interview context. It's a loaded question and often the asker themselves have no idea about what they want to know. They just hinge on the hope that the answerer is intelligent enough to leave some breadcrumbs that make for a good conversation while allowing them to learn as much there is to their relevance to the role at hand.
+
+I think this question is important - it practically defines the tone of the interviewer throughout the conversation. I remember that the time I started to thoughtfully prepare for this question was when I wanted to attend one of the most consequential interviews of my lifetime - at Palantir. From the many interactions I had had with Palantir people, pre-interviewing with them, I had learned that they wanted to know you beyond the surface level intelligent archetype you're conditioned to present yourself as. The quirks, the ticks, the technical density and everything under the sun. The answer to this question would probably warrant only five minutes though. I had to be thoughtful and brief.
+
+I decided to start by writing down the most comprehensive lineage of my journey, from where I was born, to how I was brought up, to friendships that changed my life, projects that made me learn what I wanted to be.... all the way to why I chose not to pursue a funded master's program. I realized that my life was full of micro and macro decisions and indecisions alike. There was a why to everything, I just hadn't thought enough when I was running auto-pilot. I realized that the parts of my story that led to a consequential change were in a trench deep in my mind. Awesome? Not yet. This enumeration of events gave me a thesis for who I had become and a sliver of where I was going, but it was, to put bluntly, verbose.
+
+I decided to now look at it from a different lens, in the journey, are there parts that I can "hand-wave" i.e. get a nod-level consensus with the interviewer on what the story looked like there, only to lead organically into the part I wanted to convey to them the most. The two slices I wanted to focus on were my motivations and my technical contributions so far.
+
+The latter was simple, I chose to use a prop i.e. draw out on a board, literally, the application of the product I had built. My first project was writing code for helicopter safety triggers, I literally drew parts of the helicopter that would be engaged on my code being deployed onboard. The second project was detecting what was underground for drilling operations. By giving the frame, I allowed the interviewer to naturally ask me what part of this project I worked on, and I was able to elaborate in a frame that they understood. In the process, I not only gave them confidence on my technical aptitude, but also the ability to discern the relevance of my work. If I was a bonehead who didn't understand why I did what I did, I wouldn't have a place at Palantir. Any interviewer would discern a performative play, so don't even try, instead focus on your choices and state intention instead of being duplicitous.
+
+For the former, i.e. discussing my motivations, this was a process of drawing out what mattered to me at that point in time 't'. This exercise of elaborately enumerating everything I had done enabled me to realize that everything that I chose to work on had some consequential change to someone's life. I don't mean this in any altruistic sense, it just gave me pleasure that I could apply the same skills I did to print my first "Hello World" in service of other humans. That was my purpose, my motivation, my reason to do anything that I did. You may have different ones, knowing what those are distinguishes you, and being able to articulate them allows the world to see that distinction.
+
+How much time did I take to convey these two things: 5 minutes, but the prep for it took me over a day and a week of background rumination. When I was asked this though, I was prepared to convey it precisely and enabled the interviewer to ask the follow on questions, learn about my journey and establish a rapport with me that would have otherwise potentially not happened through the course of the interview. This question deserves thought, it deserves an enumeration of your journey and then mapping it to what you want to convey to the person asking this question. Showing motivations and technical aptitude whilst conveying my reasons for making choices that I did was important to me for my interview at Palantir. I would implore you to do this for the next important meeting you have. It begs honesty and brevity.`
+    },
+    {
       id: 'receiving-feedback',
       title: "Receiving Feedback",
       date: "May 2025",
@@ -258,6 +279,16 @@ Lesson learned: iteration >> planning. Do, think less (not saying don't think bu
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 mb-4">Featured Writings</h3>
                   <div className="space-y-4">
+                    <div className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                      <h4 className="text-lg font-semibold text-gray-900 mb-2">Tell me about yourself</h4>
+                      <p className="text-sm text-gray-500 mb-2">How to craft a thoughtful and brief response to the most common interview question.</p>
+                      <button 
+                        onClick={() => navigate('/writings/tell-me-about-yourself')}
+                        className="text-blue-500 hover:underline"
+                      >
+                        Read More
+                      </button>
+                    </div>
                     <div className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
                       <h4 className="text-lg font-semibold text-gray-900 mb-2">Receiving Feedback</h4>
                       <p className="text-sm text-gray-500 mb-2">The art of filtering feedback and knowing when to push back.</p>
