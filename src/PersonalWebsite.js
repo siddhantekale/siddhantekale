@@ -574,7 +574,10 @@ Lesson learned: iteration >> planning. Do, think less (not saying don't think bu
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center md:items-start justify-center md:justify-between">
             <div className="flex items-center mb-6 md:mb-0">
-              <div className="w-16 h-16 rounded-full overflow-hidden mr-4">
+              <div 
+                className="w-16 h-16 rounded-full overflow-hidden mr-4 cursor-pointer hover:opacity-80 transition-opacity duration-200"
+                onClick={() => navigate('/about')}
+              >
                 <img
                   src={profilePicture}
                   alt="Profile"
@@ -582,7 +585,10 @@ Lesson learned: iteration >> planning. Do, think less (not saying don't think bu
                 />
               </div>
               <div className="text-center md:text-left">
-                <h1 className="text-2xl md:text-3xl font-heading font-medium text-neutral-900 mb-2">
+                <h1 
+                  className="text-2xl md:text-3xl font-heading font-medium text-neutral-900 mb-2 cursor-pointer hover:text-neutral-600 transition-colors duration-200"
+                  onClick={() => navigate('/about')}
+                >
                   Siddhant Ekale
                 </h1>
                 <p className="text-neutral-600 text-sm mb-3">
