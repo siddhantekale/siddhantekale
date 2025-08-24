@@ -214,44 +214,84 @@ Lesson learned: iteration >> planning. Do, think less (not saying don't think bu
       
       if (article) {
         return (
-          <div className="bg-white shadow rounded-lg p-6 max-w-3xl mx-auto">
+          <div className="max-w-3xl mx-auto">
             <div className="mb-8">
-              {/* <button
+              <button
                 onClick={() => navigate('/writings')}
-                className="text-gray-600 hover:text-gray-900 flex items-center mb-4"
+                className="inline-flex items-center text-neutral-500 hover:text-neutral-900 mb-8 transition-colors duration-200 group"
               >
-                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                 </svg>
                 Back to Writings
-              </button> */}
-              <h1 className="text-3xl font-bold text-gray-900 mb-4">{article.title}</h1>
-              <p className="text-gray-500 mb-8">{article.date}</p>
-              <div className="prose prose-lg max-w-none">
-                {article.content.split('\n\n').map((paragraph, index) => {
-                  // Check if the paragraph starts with a quote
-                  if (paragraph.startsWith('"') && paragraph.includes('" - ')) {
-                    const [quote, author] = paragraph.split('" - ');
-                    return (
-                      <blockquote key={index} className="border-l-4 border-gray-300 pl-4 italic text-gray-700 mb-4">
-                        <p className="mb-2">{quote}"</p>
-                        <footer className="text-gray-500">- {author}</footer>
-                      </blockquote>
-                    );
-                  }
-                  
-                  // Regular paragraph rendering
+              </button>
+              
+              <h1 className="text-3xl md:text-4xl font-heading font-medium text-neutral-900 mb-4 leading-tight">
+                {article.title}
+              </h1>
+              
+              <div className="flex items-center space-x-4 text-neutral-500 text-sm mb-12">
+                <span>{article.date}</span>
+                <span>·</span>
+                <span>{Math.ceil(article.content.split(' ').length / 200)} min read</span>
+              </div>
+            </div>
+            
+            <div className="prose prose-lg max-w-none">
+              {article.content.split('\n\n').map((paragraph, index) => {
+                // Check if the paragraph starts with a quote
+                if (paragraph.startsWith('"') && paragraph.includes('" - ')) {
+                  const [quote, author] = paragraph.split('" - ');
                   return (
-                    <p key={index} className="mb-4 text-gray-700 leading-relaxed">
-                      {paragraph.split(/(\*\*.*?\*\*)/).map((part, partIndex) => {
-                        if (part.startsWith('**') && part.endsWith('**')) {
-                          return <strong key={partIndex}>{part.slice(2, -2)}</strong>;
-                        }
-                        return part;
-                      })}
-                    </p>
+                    <blockquote key={index} className="border-l-2 border-neutral-300 pl-6 my-8 italic text-neutral-700">
+                      <p className="text-lg mb-2 leading-relaxed">"{quote}"</p>
+                      <footer className="text-neutral-500 not-italic">— {author}</footer>
+                    </blockquote>
                   );
-                })}
+                }
+                
+                // Regular paragraph rendering
+                return (
+                  <p key={index} className="mb-6 text-neutral-700 text-lg leading-relaxed">
+                    {paragraph.split(/(\*\*.*?\*\*)/).map((part, partIndex) => {
+                      if (part.startsWith('**') && part.endsWith('**')) {
+                        return <strong key={partIndex} className="font-medium text-neutral-900">{part.slice(2, -2)}</strong>;
+                      }
+                      return part;
+                    })}
+                  </p>
+                );
+              })}
+            </div>
+            
+            {/* Article Footer */}
+            <div className="mt-16 pt-8 border-t border-neutral-200">
+              <div className="flex items-center justify-between">
+                <button
+                  onClick={() => navigate('/writings')}
+                  className="text-neutral-500 hover:text-neutral-900 font-medium transition-colors duration-200"
+                >
+                  ← More Writings
+                </button>
+                
+                <div className="flex items-center space-x-4">
+                  <a 
+                    href="https://www.linkedin.com/in/siddhantekale/" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-neutral-400 hover:text-neutral-900 transition-colors duration-200"
+                  >
+                    <Linkedin className="w-5 h-5" />
+                  </a>
+                  <a 
+                    href="https://x.com/sidekale" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-neutral-400 hover:text-neutral-900 transition-colors duration-200"
+                  >
+                    <Twitter className="w-5 h-5" />
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -262,152 +302,175 @@ Lesson learned: iteration >> planning. Do, think less (not saying don't think bu
     switch (currentPath) {
       case '/about':
         return (
-          <div className="bg-white shadow rounded-lg p-6">
-            {/* <h2 className="text-2xl font-bold text-gray-900 mb-6">About Me</h2> */}
-            
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
               {/* Left Column - About and Writings */}
-              <div className="flex flex-col space-y-8">
+              <div className="space-y-12">
                 {/* About Row */}
                 <div>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">About Me</h2>
-                  <p className="text-gray-700 mb-4">
+                  <h2 className="text-2xl font-heading font-medium text-neutral-900 mb-6">
+                    About Me
+                  </h2>
+                  <p className="text-neutral-700 text-lg leading-relaxed">
                     Hello! I'm Sid. Engineer by discipline, Architect (worn many hats) at Palantir. Eternally aching to build. Opinions reflected here are all personal.
                   </p>
                 </div>
                 {/* Writings Row */}
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">Featured Writings</h3>
-                  <div className="space-y-4">
-                    <div className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
-                      <h4 className="text-lg font-semibold text-gray-900 mb-2">Tell me about yourself</h4>
-                      <p className="text-sm text-gray-500 mb-2">How to craft a thoughtful and brief response to the most common interview question.</p>
+                  <h3 className="text-xl font-heading font-medium text-neutral-900 mb-8">
+                    Featured Writings
+                  </h3>
+                  <div className="space-y-6">
+                    <div className="border-b border-neutral-100 pb-6">
+                      <h4 className="text-lg font-medium text-neutral-900 mb-2 hover:text-neutral-600 transition-colors cursor-pointer"
+                          onClick={() => navigate('/writings/tell-me-about-yourself')}>
+                        Tell me about yourself
+                      </h4>
+                      <p className="text-neutral-600 mb-3 leading-relaxed">
+                        How to craft a thoughtful and brief response to the most common interview question.
+                      </p>
                       <button 
                         onClick={() => navigate('/writings/tell-me-about-yourself')}
-                        className="text-blue-500 hover:underline"
+                        className="text-neutral-500 hover:text-neutral-900 text-sm font-medium transition-colors duration-200"
                       >
-                        Read More
+                        Read More →
                       </button>
                     </div>
-                    <div className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
-                      <h4 className="text-lg font-semibold text-gray-900 mb-2">Receiving Feedback</h4>
-                      <p className="text-sm text-gray-500 mb-2">The art of filtering feedback and knowing when to push back.</p>
+                    <div className="border-b border-neutral-100 pb-6">
+                      <h4 className="text-lg font-medium text-neutral-900 mb-2 hover:text-neutral-600 transition-colors cursor-pointer"
+                          onClick={() => navigate('/writings/receiving-feedback')}>
+                        Receiving Feedback
+                      </h4>
+                      <p className="text-neutral-600 mb-3 leading-relaxed">
+                        The art of filtering feedback and knowing when to push back.
+                      </p>
                       <button 
                         onClick={() => navigate('/writings/receiving-feedback')}
-                        className="text-blue-500 hover:underline"
+                        className="text-neutral-500 hover:text-neutral-900 text-sm font-medium transition-colors duration-200"
                       >
-                        Read More
+                        Read More →
                       </button>
                     </div>
-                    <div className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
-                      <h4 className="text-lg font-semibold text-gray-900 mb-2">Conducting Meetings</h4>
-                      <p className="text-sm text-gray-500 mb-2">Directive but malleable.</p>
+                    <div className="border-b border-neutral-100 pb-6">
+                      <h4 className="text-lg font-medium text-neutral-900 mb-2 hover:text-neutral-600 transition-colors cursor-pointer"
+                          onClick={() => navigate('/writings/conducting-meetings')}>
+                        Conducting Meetings
+                      </h4>
+                      <p className="text-neutral-600 mb-3 leading-relaxed">
+                        Directive but malleable.
+                      </p>
                       <button 
                         onClick={() => navigate('/writings/conducting-meetings')}
-                        className="text-blue-500 hover:underline"
+                        className="text-neutral-500 hover:text-neutral-900 text-sm font-medium transition-colors duration-200"
                       >
-                        Read More
+                        Read More →
                       </button>
                     </div>
-                    <div className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
-                      <h4 className="text-lg font-semibold text-gray-900 mb-2">Running (Serving) Cross Functional Teams</h4>
-                      <p className="text-sm text-gray-500 mb-2">Competence matters. Cultural relativity matters.</p>
+                    <div className="border-b border-neutral-100 pb-6">
+                      <h4 className="text-lg font-medium text-neutral-900 mb-2 hover:text-neutral-600 transition-colors cursor-pointer"
+                          onClick={() => navigate('/writings/running-cross-functional-teams')}>
+                        Running (Serving) Cross Functional Teams
+                      </h4>
+                      <p className="text-neutral-600 mb-3 leading-relaxed">
+                        Competence matters. Cultural relativity matters.
+                      </p>
                       <button 
                         onClick={() => navigate('/writings/running-cross-functional-teams')}
-                        className="text-blue-500 hover:underline"
+                        className="text-neutral-500 hover:text-neutral-900 text-sm font-medium transition-colors duration-200"
                       >
-                        Read More
+                        Read More →
                       </button>
                     </div>
-                    <div className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
-                      <h4 className="text-lg font-semibold text-gray-900 mb-2">Good to Great - Product</h4>
-                      <p className="text-sm text-gray-500 mb-2">Iteration over planning. Empirical over Abstract</p>
+                    <div className="border-b border-neutral-100 pb-6">
+                      <h4 className="text-lg font-medium text-neutral-900 mb-2 hover:text-neutral-600 transition-colors cursor-pointer"
+                          onClick={() => navigate('/writings/good-to-great')}>
+                        Good to Great - Product
+                      </h4>
+                      <p className="text-neutral-600 mb-3 leading-relaxed">
+                        Iteration over planning. Empirical over Abstract
+                      </p>
                       <button 
                         onClick={() => navigate('/writings/good-to-great')}
-                        className="text-blue-500 hover:underline"
+                        className="text-neutral-500 hover:text-neutral-900 text-sm font-medium transition-colors duration-200"
                       >
-                        Read More
+                        Read More →
                       </button>
                     </div>
-                    <div className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
-                      <h4 className="text-lg font-semibold text-gray-900 mb-2">To MCP or not MCP (Coming soon...)</h4>
-                      <p className="text-sm text-gray-500 mb-2">Better to just use APIs?</p>
-                      <button 
-                        onClick={() => navigate('/writings/understanding-mcp')}
-                        className="text-blue-500 hover:underline"
-                      >
-                        Read More
-                      </button>
+                    <div className="pb-6">
+                      <h4 className="text-lg font-medium text-neutral-500 mb-2">
+                        To MCP or not MCP <span className="text-xs text-neutral-400 ml-2">(Coming soon)</span>
+                      </h4>
+                      <p className="text-neutral-500 mb-3 leading-relaxed">
+                        Better to just use APIs?
+                      </p>
+                      <span className="text-neutral-400 text-sm font-medium">
+                        Coming Soon
+                      </span>
                     </div>
                   </div>
                 </div>
               </div>
-              {/* Right Column - Timeline and Placeholder */}
-              <div className="flex flex-col space-y-8">
+              {/* Right Column - Timeline */}
+              <div className="space-y-12">
                 {/* Timeline Row */}
                 <div>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">Timeline</h2>
-                  <div className="relative border-l-2 border-gray-200 pl-6">
-                    {/* Palantir Technologies Header */}
-                    <div className="mb-4">
-                      <div className="absolute -left-3.5 w-7 h-7 bg-blue-100 border-2 border-blue-400 rounded-full flex items-center justify-center">
-                        <span className="w-3 h-3 bg-blue-500 rounded-full"></span>
-                      </div>
-                      <h4 className="text-xl font-bold text-gray-900">Palantir Technologies</h4>
-                    </div>
-                    {/* 2021-2024 Sub-nodes */}
-                    <div className="mb-6 ml-4">
-                      <span className="text-xs text-gray-500 font-bold">2021–2024 • Palo Alto, CA</span>
-                      <div className="space-y-4">
+                  <h2 className="text-2xl font-heading font-medium text-neutral-900 mb-8">
+                    Timeline
+                  </h2>
+                  <div className="space-y-8">
+                    
+                    {/* Palantir Technologies */}
+                    <div>
+                      <h4 className="text-lg font-medium text-neutral-900 mb-4">
+                        Palantir Technologies
+                      </h4>
+                      <div className="space-y-6 ml-4 border-l border-neutral-200 pl-6">
                         <div>
-                          <p className="text-gray-700 mb-1">Currently responsible for two key initiatives:</p>
-                          <div className="ml-4">
-                            <p className="text-gray-700 mb-1">• Leading a team of engineers and compliance specialists to develop Palantir's GxP platform for clinical use-cases ranging from site-selection to RWE analysis.</p>
-                            <p className="text-gray-700 mb-1">• Leading a team of extremely talented architects to build product demos that show end to end product capability for Palantir's AI Platform.</p>
-                          </div>
+                          <p className="text-sm text-neutral-500 font-medium mb-2">2021–2024 • Palo Alto, CA</p>
+                          <p className="text-neutral-700 mb-2">Currently responsible for two key initiatives:</p>
+                          <ul className="text-neutral-600 text-sm space-y-1 ml-4">
+                            <li>• Leading a team of engineers and compliance specialists to develop Palantir's GxP platform for clinical use-cases ranging from site-selection to RWE analysis.</li>
+                            <li>• Leading a team of extremely talented architects to build product demos that show end to end product capability for Palantir's AI Platform.</li>
+                          </ul>
+                        </div>
+                        
+                        <div>
+                          <p className="text-sm text-neutral-500 font-medium mb-2">2020–2021 • London, UK</p>
+                          <p className="text-neutral-600 text-sm">Developed applications for the NHS at the brink of and through COVID-19 that allowed for equitable allocation of ICU and PPE equipment.</p>
+                        </div>
+                        
+                        <div>
+                          <p className="text-sm text-neutral-500 font-medium mb-2">2019–2020 • New York, NY</p>
+                          <ul className="text-neutral-600 text-sm space-y-1 ml-4">
+                            <li>• Developed User applications that are currently thwarting nation state cyber-security attacks.</li>
+                            <li>• Wrote data pipelines and models that detected fraud amongst trillion row transaction datasets.</li>
+                          </ul>
                         </div>
                       </div>
                     </div>
-                    {/* 2020-2021 Sub-node */}
-                    <div className="mb-6 ml-4">
-                      <span className="text-xs text-gray-500 font-bold">2020–2021 • London, UK</span>
-                      <p className="text-gray-700 mb-1">Developed applications for the NHS at the brink of and through COVID-19 that allowed for equitable allocation of ICU and PPE equipment.</p>
-                    </div>
-                    {/* 2019-2020 Sub-node */}
-                    <div className="mb-6 ml-4">
-                      <span className="text-xs text-gray-500 font-bold">2019–2020 • New York, NY</span>
-                      <p className="text-gray-700 mb-1">Developed User applications that are currently thwarting nation state cyber-security attacks.</p>
-                      <p className="text-gray-700 mb-1">Wrote data pipelines and models that detected fraud amongst trillion row transaction datasets.</p>
-                    </div>
-                    {/* Digital Control Inc. Header */}
-                    <div className="mb-4">
-                      <div className="absolute -left-3.5 w-7 h-7 b rounded-full flex items-center justify-center">
-                        <span className="w-3 h-3 bg-green-500 rounded-full"></span>
+                    
+                    {/* Digital Control Inc. */}
+                    <div>
+                      <h4 className="text-lg font-medium text-neutral-900 mb-4">
+                        Digital Control Inc.
+                      </h4>
+                      <div className="ml-4 border-l border-neutral-200 pl-6">
+                        <p className="text-sm text-neutral-500 font-medium mb-2">2018–2019 • Seattle, WA</p>
+                        <p className="text-neutral-600 text-sm">Programmed a custom transmitter / receiver for directional drilling.</p>
                       </div>
-                      <h4 className="text-xl font-bold text-gray-900">Digital Control Inc.</h4>
                     </div>
-                    {/* 2018-2019 Sub-node */}
-                    <div className="mb-6 ml-4">
-                      <span className="text-xs text-gray-500 font-bold">2018–2019 • Seattle, WA</span>
-                      <p className="text-gray-700 mb-1">Programmed a custom transmitter / receiver for directional drilling.</p>
-                    </div>
-                    {/* Helitrak Inc. Header */}
-                    <div className="mb-4">
-                      <div className="absolute -left-3.5 w-7 h-7 rounded-full flex items-center justify-center">
-                        <span className="w-3 h-3 bg-green-500 rounded-full"></span>
+                    
+                    {/* Helitrak Inc. */}
+                    <div>
+                      <h4 className="text-lg font-medium text-neutral-900 mb-4">
+                        Helitrak Inc.
+                      </h4>
+                      <div className="ml-4 border-l border-neutral-200 pl-6">
+                        <p className="text-sm text-neutral-500 font-medium mb-2">2017–2018 • Gig Harbor, WA</p>
+                        <p className="text-neutral-600 text-sm">Programmed Autopilots and Safety Trigger for the Collective for R22 and R44 Helicopters.</p>
                       </div>
-                      <h4 className="text-xl font-bold text-gray-900">Helitrak Inc.</h4>
-                    </div>
-                    {/* 2017-2018 Sub-node */}
-                    <div className="ml-4">
-                      <span className="text-xs text-gray-500 font-bold">2017–2018 • Gig Harbor, WA</span>
-                      <p className="text-gray-700 mb-1">Programmed Autopilots and Safety Trigger for the Collective for R22 and R44 Helicopters.</p>
                     </div>
                   </div>
-                </div>
-                {/* Placeholder Row for future content */}
-                <div>
-                  {/* Add future content here if needed */}
                 </div>
               </div>
             </div>
@@ -452,21 +515,47 @@ Lesson learned: iteration >> planning. Do, think less (not saying don't think bu
         
       case '/writings':
         return (
-          <div className="bg-white shadow rounded-lg p-6">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Writings</h2>
-            <div className="space-y-6">
+          <div className="max-w-3xl mx-auto">
+            <div className="mb-12">
+              <h2 className="text-3xl font-heading font-medium text-neutral-900 mb-4">Writings</h2>
+              <p className="text-lg text-neutral-600">
+                Thoughts on leadership, product development, and building great teams.
+              </p>
+            </div>
+            
+            <div className="space-y-8">
               {blogPosts.map((post, index) => (
-                <div key={index} className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
-                  <h3 className="text-xl font-bold text-gray-900">{post.title}</h3>
-                  <p className="text-sm text-gray-500 mb-4">{post.date}</p>
-                  <div className="border-t border-gray-200 my-4"></div>
-                  <p className="text-gray-700 mb-4">{post.summary}</p>
-                  <button 
-                    onClick={() => navigate(`/writings/${post.id || '#'}`)}
-                    className="px-4 py-2 border border-gray-800 text-sm font-medium rounded-md text-gray-800 bg-white hover:bg-gray-50"
-                  >
-                    Read More
-                  </button>
+                <div 
+                  key={index} 
+                  className={`border-b border-neutral-100 pb-8 cursor-pointer group ${post.content === 'Coming soon...' ? 'opacity-60' : ''}`}
+                  onClick={() => navigate(`/writings/${post.id || '#'}`)}
+                >
+                  <div className="flex items-start justify-between mb-3">
+                    <h3 className="text-xl font-medium text-neutral-900 group-hover:text-neutral-600 transition-colors">
+                      {post.title}
+                    </h3>
+                    <div className="flex items-center space-x-3 text-sm text-neutral-500">
+                      {post.content === 'Coming soon...' ? (
+                        <span>Coming Soon</span>
+                      ) : (
+                        <>
+                          <span>{post.date}</span>
+                          <span>·</span>
+                          <span>{Math.ceil(post.content.split(' ').length / 200)} min read</span>
+                        </>
+                      )}
+                    </div>
+                  </div>
+                  
+                  <p className="text-neutral-600 leading-relaxed mb-4">
+                    {post.summary}
+                  </p>
+                  
+                  {post.content !== 'Coming soon...' && (
+                    <span className="text-neutral-500 text-sm font-medium group-hover:text-neutral-900 transition-colors">
+                      Read More →
+                    </span>
+                  )}
                 </div>
               ))}
             </div>
@@ -479,13 +568,13 @@ Lesson learned: iteration >> planning. Do, think less (not saying don't think bu
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-blue-100 to-indigo-200 py-4 md:py-6">
+      <div className="border-b border-neutral-100 py-6 md:py-8">
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center md:items-start justify-center md:justify-between">
-            <div className="flex items-center">
-              <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-white shadow-sm mb-3 md:mb-0 md:mr-5">
+            <div className="flex items-center mb-6 md:mb-0">
+              <div className="w-16 h-16 rounded-full overflow-hidden mr-4">
                 <img
                   src={profilePicture}
                   alt="Profile"
@@ -493,24 +582,34 @@ Lesson learned: iteration >> planning. Do, think less (not saying don't think bu
                 />
               </div>
               <div className="text-center md:text-left">
-                <h1 className="text-2xl font-bold text-gray-800">Siddhant Ekale</h1>
-                {/* Tagline commented out until personalized
-                <p className="mt-1 text-base text-gray-600">
-                  Technology Enthusiast • Healthcare Innovator • Lifelong Learner
+                <h1 className="text-2xl md:text-3xl font-heading font-medium text-neutral-900 mb-2">
+                  Siddhant Ekale
+                </h1>
+                <p className="text-neutral-600 text-sm mb-3">
+                  Engineer • Architect • Builder
                 </p>
-                */}
-                <div className="mt-2 flex justify-center md:justify-start space-x-3">
-                  <a href="https://www.linkedin.com/in/siddhantekale/" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-blue-500">
-                    <Linkedin className="w-5 h-5" />
+                <div className="flex justify-center md:justify-start space-x-3">
+                  <a 
+                    href="https://www.linkedin.com/in/siddhantekale/" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-neutral-500 hover:text-neutral-900 transition-colors duration-200"
+                  >
+                    <Linkedin className="w-4 h-4" />
                   </a>
-                  <a href="https://x.com/sidekale" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-blue-500">
-                    <Twitter className="w-5 h-5" />
+                  <a 
+                    href="https://x.com/sidekale" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-neutral-500 hover:text-neutral-900 transition-colors duration-200"
+                  >
+                    <Twitter className="w-4 h-4" />
                   </a>
                 </div>
               </div>
             </div>
             {/* Navigation */}
-            <nav className="hidden md:flex space-x-4">
+            <nav className="flex space-x-1">
               {navItems.map((item) => (
                 <a
                   key={item.path}
@@ -521,10 +620,10 @@ Lesson learned: iteration >> planning. Do, think less (not saying don't think bu
                       navigate(item.path);
                     }
                   }}
-                  className={`px-3 py-2 rounded-md text-sm font-medium ${
+                  className={`px-4 py-2 text-sm font-medium transition-colors duration-200 ${
                     currentPath === item.path
-                      ? 'bg-gray-800 text-white'
-                      : 'text-gray-600 hover:bg-gray-100'
+                      ? 'text-neutral-900 border-b-2 border-neutral-900'
+                      : 'text-neutral-500 hover:text-neutral-900'
                   }`}
                 >
                   {item.label}
@@ -536,7 +635,7 @@ Lesson learned: iteration >> planning. Do, think less (not saying don't think bu
       </div>
 
       {/* Main Content */}
-      <main className="max-w-6xl mx-auto px-4 py-8">
+      <main className="max-w-6xl mx-auto px-4 py-12">
         {renderContent()}
       </main>
     </div>
