@@ -1,16 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.aa719ded.css",
-    "main.js": "/static/js/main.a0f66bf6.js",
+    "main.css": "/static/css/main.073cb9a1.css",
+    "main.js": "/static/js/main.8957716a.js",
     "static/js/453.8463039d.chunk.js": "/static/js/453.8463039d.chunk.js",
+    "static/media/WSJPanel.png": "/static/media/WSJPanel.057038939e86fbb53302.png",
+    "static/media/AIPHyperauto.png": "/static/media/AIPHyperauto.7b02c3ed6d84dd403a7d.png",
+    "static/media/AI Assisted Cricket Team Selection.png": "/static/media/AI Assisted Cricket Team Selection.7dba6ab549ab7b26e422.png",
     "static/media/profile_picture_linkedin.jpeg": "/static/media/profile_picture_linkedin.264a232229cde8712263.jpeg",
     "index.html": "/index.html",
-    "main.aa719ded.css.map": "/static/css/main.aa719ded.css.map",
-    "main.a0f66bf6.js.map": "/static/js/main.a0f66bf6.js.map",
+    "main.073cb9a1.css.map": "/static/css/main.073cb9a1.css.map",
+    "main.8957716a.js.map": "/static/js/main.8957716a.js.map",
     "453.8463039d.chunk.js.map": "/static/js/453.8463039d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.aa719ded.css",
-    "static/js/main.a0f66bf6.js"
+    "static/css/main.073cb9a1.css",
+    "static/js/main.8957716a.js"
   ]
 }
