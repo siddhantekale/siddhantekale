@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { User, FileText, Linkedin, Twitter } from 'lucide-react';
 import profilePicture from './assets/profile_picture_linkedin.jpeg';
+import wsjPanelImage from './assets/WSJPanel.png';
+import cricketTeamImage from './assets/AI Assisted Cricket Team Selection.png';
+import aipHyperautoImage from './assets/AIPHyperauto.png';
 
 // Custom hook for handling routes
 const useRouter = () => {
@@ -191,6 +194,7 @@ Lesson learned: iteration >> planning. Do, think less (not saying don't think bu
   const navItems = useMemo(() => [
     { path: '/about', label: 'About', icon: <User className="w-5 h-5" /> },
     { path: '/writings', label: 'Writings', icon: <FileText className="w-5 h-5" /> },
+    { path: '/featured', label: 'Featured', icon: <FileText className="w-5 h-5" /> },
   ], []);
   
   // If the current path doesn't match any of our routes, default to /about
@@ -522,11 +526,11 @@ Lesson learned: iteration >> planning. Do, think less (not saying don't think bu
                 Thoughts on leadership, product development, and building great teams.
               </p>
             </div>
-            
+
             <div className="space-y-8">
               {blogPosts.map((post, index) => (
-                <div 
-                  key={index} 
+                <div
+                  key={index}
                   className={`border-b border-neutral-100 pb-8 cursor-pointer group ${post.content === 'Coming soon...' ? 'opacity-60' : ''}`}
                   onClick={() => navigate(`/writings/${post.id || '#'}`)}
                 >
@@ -546,11 +550,11 @@ Lesson learned: iteration >> planning. Do, think less (not saying don't think bu
                       )}
                     </div>
                   </div>
-                  
+
                   <p className="text-neutral-600 leading-relaxed mb-4">
                     {post.summary}
                   </p>
-                  
+
                   {post.content !== 'Coming soon...' && (
                     <span className="text-neutral-500 text-sm font-medium group-hover:text-neutral-900 transition-colors">
                       Read More →
@@ -561,7 +565,157 @@ Lesson learned: iteration >> planning. Do, think less (not saying don't think bu
             </div>
           </div>
         );
-        
+
+      case '/featured':
+        return (
+          <div className="max-w-4xl mx-auto">
+            <div className="mb-12">
+              <h2 className="text-3xl font-heading font-medium text-neutral-900 mb-4">Featured</h2>
+              <p className="text-lg text-neutral-600">
+                Highlights from interviews, talks, and projects showcasing innovation and expertise.
+              </p>
+            </div>
+
+            <div className="grid gap-8">
+              {/* WSJ Chat with Jane Horvath */}
+              <div className="border border-neutral-200 rounded-lg overflow-hidden hover:border-neutral-300 transition-all duration-200 hover:shadow-md">
+                <a
+                  href="https://finance.yahoo.com/video/online-privacy-age-ai-183700454.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block"
+                >
+                  <img
+                    src={wsjPanelImage}
+                    alt="WSJ Panel - Online Privacy in the Age of AI"
+                    className="w-full h-48 object-cover hover:opacity-90 transition-opacity duration-200"
+                  />
+                </a>
+                <div className="p-8">
+                  <div className="mb-6">
+                    <h3 className="text-xl font-medium text-neutral-900 mb-3">
+                      Online Privacy in the Age of AI
+                    </h3>
+                    <p className="text-neutral-600 leading-relaxed mb-4">
+                      A compelling panel discussion featuring Jane Horvath (former Chief Privacy Officer at Apple),
+                      WSJ Reporter Chip Cutter, and Siddhant Ekale exploring the evolving landscape of privacy protection
+                      in an AI-driven world. The conversation delves into the balance between innovation and user privacy rights.
+                    </p>
+                    <div className="flex items-center space-x-4 text-sm text-neutral-500 mb-6">
+                      <span className="px-2 py-1 bg-neutral-100 rounded text-xs">WSJ Interview</span>
+                      <span className="px-2 py-1 bg-neutral-100 rounded text-xs">Privacy</span>
+                      <span className="px-2 py-1 bg-neutral-100 rounded text-xs">AI</span>
+                    </div>
+                  </div>
+                  <a
+                    href="https://finance.yahoo.com/video/online-privacy-age-ai-183700454.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-4 py-2 bg-neutral-900 text-white text-sm font-medium rounded-lg hover:bg-neutral-800 transition-colors duration-200"
+                  >
+                    Watch Interview
+                    <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              {/* AI Assisted Cricket Team Selection */}
+              <div className="border border-neutral-200 rounded-lg overflow-hidden hover:border-neutral-300 transition-all duration-200 hover:shadow-md">
+                <div className="flex">
+                  <a
+                    href="https://www.youtube.com/watch?v=v_P09G4GRY8"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-[35%]"
+                  >
+                    <img
+                      src={cricketTeamImage}
+                      alt="AI Assisted Cricket Team Selection"
+                      className="w-full h-full object-cover hover:opacity-90 transition-opacity duration-200 min-h-[200px]"
+                    />
+                  </a>
+                  <div className="w-[65%] p-8">
+                    <div className="mb-6">
+                      <h3 className="text-xl font-medium text-neutral-900 mb-3">
+                        AI Assisted Cricket Team Selection
+                      </h3>
+                      <p className="text-neutral-600 leading-relaxed mb-4">
+                        An innovative application of artificial intelligence in sports analytics, demonstrating how machine learning
+                        algorithms can optimize team composition based on player performance metrics, historical data, and strategic considerations.
+                        Featured work by Siddhant Ekale showcasing practical AI implementation in sports.
+                      </p>
+                      <div className="flex items-center space-x-4 text-sm text-neutral-500 mb-6">
+                        <span className="px-2 py-1 bg-neutral-100 rounded text-xs">Sports Analytics</span>
+                        <span className="px-2 py-1 bg-neutral-100 rounded text-xs">AI/ML</span>
+                        <span className="px-2 py-1 bg-neutral-100 rounded text-xs">Data Science</span>
+                      </div>
+                    </div>
+                    <a
+                      href="https://www.youtube.com/watch?v=v_P09G4GRY8"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center px-4 py-2 bg-neutral-900 text-white text-sm font-medium rounded-lg hover:bg-neutral-800 transition-colors duration-200"
+                    >
+                      Watch Video
+                      <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Building with AIP: ERP HyperAuto */}
+              <div className="border border-neutral-200 rounded-lg overflow-hidden hover:border-neutral-300 transition-all duration-200 hover:shadow-md">
+                <div className="flex">
+                  <a
+                    href="https://www.youtube.com/watch?v=UDd2kb178Eg"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-[35%]"
+                  >
+                    <img
+                      src={aipHyperautoImage}
+                      alt="Building with AIP: ERP HyperAuto"
+                      className="w-full h-full object-cover hover:opacity-90 transition-opacity duration-200 min-h-[200px]"
+                    />
+                  </a>
+                  <div className="w-[65%] p-8">
+                    <div className="mb-6">
+                      <h3 className="text-xl font-medium text-neutral-900 mb-3">
+                        Building with AIP: ERP HyperAuto
+                      </h3>
+                      <p className="text-neutral-600 leading-relaxed mb-4">
+                        A deep dive into developing enterprise solutions using Palantir's AI Platform (AIP), showcasing the integration
+                        of advanced automation capabilities within ERP systems to streamline business operations and enhance decision-making.
+                        Demonstration by Siddhant Ekale of cutting-edge AI implementation in enterprise environments.
+                      </p>
+                      <div className="flex items-center space-x-4 text-sm text-neutral-500 mb-6">
+                        <span className="px-2 py-1 bg-neutral-100 rounded text-xs">Enterprise Software</span>
+                        <span className="px-2 py-1 bg-neutral-100 rounded text-xs">Automation</span>
+                        <span className="px-2 py-1 bg-neutral-100 rounded text-xs">ERP</span>
+                      </div>
+                    </div>
+                    <a
+                      href="https://www.youtube.com/watch?v=UDd2kb178Eg"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center px-4 py-2 bg-neutral-900 text-white text-sm font-medium rounded-lg hover:bg-neutral-800 transition-colors duration-200"
+                    >
+                      Watch Demo
+                      <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+
       default:
         return <div>Page not found</div>;
     }
