@@ -265,7 +265,7 @@ Lesson learned: iteration >> planning. Do, think less (not saying don't think bu
                   const [quote, author] = paragraph.split('" - ');
                   return (
                     <blockquote key={index} className="border-l-2 border-neutral-300 pl-6 my-8 italic text-neutral-700">
-                      <p className="text-lg mb-2 leading-relaxed">"{quote}"</p>
+                      <p className="text-lg mb-2 leading-relaxed">{quote}"</p>
                       <footer className="text-neutral-500 not-italic">— {author}</footer>
                     </blockquote>
                   );
