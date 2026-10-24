@@ -647,7 +647,7 @@ Lesson learned: iteration >> planning. Do, think less (not saying don't think bu
                   <img
                     src={tsiaConferenceImage}
                     alt="A Conversation with a Palantir FDE and Senior Architect | TSW 2026"
-                    className="w-full h-48 object-top object-cover hover:opacity-90 transition-opacity duration-200"
+                    className="w-full h-48 object-[50%_25%] object-cover hover:opacity-90 transition-opacity duration-200"
                   />
                 </a>
                 <div className="p-8">
