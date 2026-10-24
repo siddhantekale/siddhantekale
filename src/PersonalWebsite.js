@@ -211,8 +211,8 @@ Lesson learned: iteration >> planning. Do, think less (not saying don't think bu
   // Navigation items wrapped in useMemo to prevent unnecessary re-renders
   const navItems = useMemo(() => [
     { path: '/about', label: 'About', icon: <User className="w-5 h-5" /> },
-    { path: '/writings', label: 'Writings', icon: <FileText className="w-5 h-5" /> },
     { path: '/featured', label: 'Featured', icon: <FileText className="w-5 h-5" /> },
+    { path: '/writings', label: 'Writings', icon: <FileText className="w-5 h-5" /> },
   ], []);
   
   // If the current path doesn't match any of our routes, default to /about
@@ -589,9 +589,6 @@ Lesson learned: iteration >> planning. Do, think less (not saying don't think bu
           <div className="max-w-4xl mx-auto">
             <div className="mb-12">
               <h2 className="text-3xl font-heading font-medium text-neutral-900 mb-4">Featured</h2>
-              <p className="text-lg text-neutral-600">
-                Highlights from interviews, talks, and projects showcasing innovation and expertise.
-              </p>
             </div>
 
             <div className="grid gap-8">
