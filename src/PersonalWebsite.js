@@ -4,7 +4,7 @@ import profilePicture from './assets/profile_picture_linkedin.jpeg';
 import wsjPanelImage from './assets/WSJPanel.png';
 import cricketTeamImage from './assets/AI Assisted Cricket Team Selection.png';
 import aipHyperautoImage from './assets/AIPHyperauto.png';
-import tsiaConferenceImage from './assets/TSIAConference_2.png';
+import tsiaConferenceImage from './assets/TSIAConference.png';
 
 // Custom hook for handling routes
 const useRouter = () => {
@@ -641,47 +641,46 @@ Lesson learned: iteration >> planning. Do, think less (not saying don't think bu
 
               {/* A Conversation with a Palantir FDE and Senior Architect | TSW 2026 */}
               <div className="border border-neutral-200 rounded-lg overflow-hidden hover:border-neutral-300 transition-all duration-200 hover:shadow-md">
-                <div className="flex">
+                <a
+                  href="https://www.youtube.com/watch?v=GXH93BN9YUU"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block"
+                >
+                  <img
+                    src={tsiaConferenceImage}
+                    alt="A Conversation with a Palantir FDE and Senior Architect | TSW 2026"
+                    className="w-full h-48 object-cover hover:opacity-90 transition-opacity duration-200"
+                  />
+                </a>
+                <div className="p-8">
+                  <div className="mb-6">
+                    <h3 className="text-xl font-medium text-neutral-900 mb-3">
+                      A Conversation with a Palantir FDE and Senior Architect | TSW 2026
+                    </h3>
+                    <p className="text-neutral-600 leading-relaxed mb-4">
+                      A candid interview exploring the Forward Deployed Engineer and Senior Architect roles at Palantir,
+                      covering what the work actually looks like, how the roles differ, and lessons learned from building
+                      and deploying software directly alongside customers.
+                    </p>
+                    <div className="flex items-center space-x-4 text-sm text-neutral-500 mb-6">
+                      <span className="px-2 py-1 bg-neutral-100 rounded text-xs">Interview</span>
+                      <span className="px-2 py-1 bg-neutral-100 rounded text-xs">Palantir</span>
+                      <span className="px-2 py-1 bg-neutral-100 rounded text-xs">Forward Deployed Engineering</span>
+                      <span className="px-2 py-1 bg-neutral-100 rounded text-xs">TSW 2026</span>
+                    </div>
+                  </div>
                   <a
                     href="https://www.youtube.com/watch?v=GXH93BN9YUU"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block w-[35%]"
+                    className="inline-flex items-center px-4 py-2 bg-neutral-900 text-white text-sm font-medium rounded-lg hover:bg-neutral-800 transition-colors duration-200"
                   >
-                    <img
-                      src={tsiaConferenceImage}
-                      alt="A Conversation with a Palantir FDE and Senior Architect | TSW 2026"
-                      className="w-full h-full object-cover hover:opacity-90 transition-opacity duration-200 min-h-[200px]"
-                    />
+                    Watch Interview
+                    <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
                   </a>
-                  <div className="w-[65%] p-8">
-                    <div className="mb-6">
-                      <h3 className="text-xl font-medium text-neutral-900 mb-3">
-                        A Conversation with a Palantir FDE and Senior Architect | TSW 2026
-                      </h3>
-                      <p className="text-neutral-600 leading-relaxed mb-4">
-                        A candid conversation exploring the Forward Deployed Engineer and Senior Architect roles at Palantir,
-                        covering what the work actually looks like, how the roles differ, and lessons learned from building
-                        and deploying software directly alongside customers.
-                      </p>
-                      <div className="flex items-center space-x-4 text-sm text-neutral-500 mb-6">
-                        <span className="px-2 py-1 bg-neutral-100 rounded text-xs">Palantir</span>
-                        <span className="px-2 py-1 bg-neutral-100 rounded text-xs">Forward Deployed Engineering</span>
-                        <span className="px-2 py-1 bg-neutral-100 rounded text-xs">TSW 2026</span>
-                      </div>
-                    </div>
-                    <a
-                      href="https://www.youtube.com/watch?v=GXH93BN9YUU"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center px-4 py-2 bg-neutral-900 text-white text-sm font-medium rounded-lg hover:bg-neutral-800 transition-colors duration-200"
-                    >
-                      Watch Video
-                      <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                      </svg>
-                    </a>
-                  </div>
                 </div>
               </div>
 
