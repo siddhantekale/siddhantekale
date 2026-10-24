@@ -4,7 +4,7 @@ import profilePicture from './assets/profile_picture_linkedin.jpeg';
 import wsjPanelImage from './assets/WSJPanel.png';
 import cricketTeamImage from './assets/AI Assisted Cricket Team Selection.png';
 import aipHyperautoImage from './assets/AIPHyperauto.png';
-import tsiaConferenceImage from './assets/TSIAConference2.png';
+import tsiaConferenceImage from './assets/TSIAConference_2.png';
 
 // Custom hook for handling routes
 const useRouter = () => {
