@@ -246,7 +246,7 @@ Lesson learned: iteration >> planning. Do, think less (not saying don't think bu
                 
                 // Regular paragraph rendering
                 return (
-                  <p key={index} className="mb-6 text-neutral-700 text-lg leading-relaxed">
+                  <p key={index} className="mb-6 text-neutral-800 text-lg leading-relaxed">
                     {paragraph.split(/(\*\*.*?\*\*)/).map((part, partIndex) => {
                       if (part.startsWith('**') && part.endsWith('**')) {
                         return <strong key={partIndex} className="font-medium text-neutral-900">{part.slice(2, -2)}</strong>;
@@ -273,7 +273,7 @@ Lesson learned: iteration >> planning. Do, think less (not saying don't think bu
                     href="https://www.linkedin.com/in/siddhantekale/" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="text-neutral-400 hover:text-neutral-900 transition-colors duration-200"
+                    className="text-neutral-500 hover:text-neutral-900 transition-colors duration-200"
                   >
                     <Linkedin className="w-5 h-5" />
                   </a>
@@ -281,7 +281,7 @@ Lesson learned: iteration >> planning. Do, think less (not saying don't think bu
                     href="https://x.com/sidekale" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="text-neutral-400 hover:text-neutral-900 transition-colors duration-200"
+                    className="text-neutral-500 hover:text-neutral-900 transition-colors duration-200"
                   >
                     <Twitter className="w-5 h-5" />
                   </a>
@@ -339,7 +339,7 @@ Lesson learned: iteration >> planning. Do, think less (not saying don't think bu
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-14 lg:gap-16">
               {/* Left column: intro, timeline */}
               <div className="lg:col-span-3 space-y-14">
-                <section className="space-y-5 text-neutral-700 text-lg leading-relaxed">
+                <section className="space-y-5 text-neutral-800 text-lg leading-relaxed">
                   <p>
                     Engineer by discipline. I started out writing software for helicopter autopilots and underground drilling guidance, and since 2019 I've been at Palantir, where I now lead Applied AI commercially, focused on healthcare and life sciences.
                   </p>
@@ -358,11 +358,11 @@ Lesson learned: iteration >> planning. Do, think less (not saying don't think bu
                           {entry.roles.map((role) => (
                             <div key={role.when}>
                               <p className="text-sm font-medium text-neutral-500 mb-1">{role.when}</p>
-                              <p className="text-neutral-700 leading-relaxed">{role.what}</p>
+                              <p className="text-neutral-800 leading-relaxed">{role.what}</p>
                               {role.points && (
                                 <ul className="mt-3 space-y-2">
                                   {role.points.map((point) => (
-                                    <li key={point} className="flex gap-3 text-neutral-600 leading-relaxed">
+                                    <li key={point} className="flex gap-3 text-neutral-700 leading-relaxed">
                                       <span className="text-neutral-300 select-none">–</span>
                                       <span>{point}</span>
                                     </li>
@@ -425,8 +425,8 @@ Lesson learned: iteration >> planning. Do, think less (not saying don't think bu
                         <h3 className="text-base font-medium text-neutral-900 group-hover:text-neutral-600 transition-colors">
                           {post.title}
                         </h3>
-                        <p className="text-sm text-neutral-600 mt-1 leading-relaxed">{post.summary}</p>
-                        <p className="text-xs text-neutral-400 mt-1">{post.date}</p>
+                        <p className="text-sm text-neutral-700 mt-1 leading-relaxed">{post.summary}</p>
+                        <p className="text-xs text-neutral-500 mt-1">{post.date}</p>
                       </button>
                     ))}
                   </div>
@@ -448,7 +448,7 @@ Lesson learned: iteration >> planning. Do, think less (not saying don't think bu
           <div className="max-w-3xl mx-auto">
             <div className="mb-12">
               <h2 className="text-3xl font-heading font-medium text-neutral-900 mb-4">Writings</h2>
-              <p className="text-lg text-neutral-600">
+              <p className="text-lg text-neutral-700">
                 Notes on leadership, building products and working with people.
               </p>
             </div>
@@ -477,7 +477,7 @@ Lesson learned: iteration >> planning. Do, think less (not saying don't think bu
                     </div>
                   </div>
 
-                  <p className="text-neutral-600 leading-relaxed mb-4">
+                  <p className="text-neutral-700 leading-relaxed mb-4">
                     {post.summary}
                   </p>
 
@@ -519,7 +519,7 @@ Lesson learned: iteration >> planning. Do, think less (not saying don't think bu
                     <h3 className="text-xl font-medium text-neutral-900 mb-3">
                       Online Privacy in the Age of AI
                     </h3>
-                    <p className="text-neutral-600 leading-relaxed mb-4">
+                    <p className="text-neutral-700 leading-relaxed mb-4">
                       A WSJ panel with Jane Horvath, Apple's former Chief Privacy Officer, moderated by WSJ reporter
                       Chip Cutter. We talked about how companies can build with AI without giving up on privacy, and why
                       careful evaluation is what makes enterprise AI trustworthy.
@@ -563,7 +563,7 @@ Lesson learned: iteration >> planning. Do, think less (not saying don't think bu
                     <h3 className="text-xl font-medium text-neutral-900 mb-3">
                       A Conversation with a Palantir FDE and Senior Architect | TSW 2026
                     </h3>
-                    <p className="text-neutral-600 leading-relaxed mb-4">
+                    <p className="text-neutral-700 leading-relaxed mb-4">
                       An interview about forward-deployed engineering and architecture at Palantir: what the work
                       actually looks like, how the roles differ, and what I've learned building software side by side
                       with customers.
@@ -609,7 +609,7 @@ Lesson learned: iteration >> planning. Do, think less (not saying don't think bu
                       <h3 className="text-xl font-medium text-neutral-900 mb-3">
                         AI Assisted Cricket Team Selection
                       </h3>
-                      <p className="text-neutral-600 leading-relaxed mb-4">
+                      <p className="text-neutral-700 leading-relaxed mb-4">
                         A side project for fun: using AI to pick a cricket team from player performance and match
                         history.
                       </p>
@@ -654,7 +654,7 @@ Lesson learned: iteration >> planning. Do, think less (not saying don't think bu
                       <h3 className="text-xl font-medium text-neutral-900 mb-3">
                         Building with AIP: ERP HyperAuto
                       </h3>
-                      <p className="text-neutral-600 leading-relaxed mb-4">
+                      <p className="text-neutral-700 leading-relaxed mb-4">
                         A walkthrough of building on Palantir's AI Platform (AIP) on top of ERP systems: connecting
                         the data, automating the workflow, and putting decisions in front of the people who make them.
                       </p>
@@ -711,7 +711,7 @@ Lesson learned: iteration >> planning. Do, think less (not saying don't think bu
                 >
                   Sid Ekale
                 </h1>
-                <p className="text-neutral-600 text-sm mb-3">
+                <p className="text-neutral-700 text-sm mb-3">
                   Applied AI · Healthcare & Life Sciences
                 </p>
                 <div className="flex justify-center md:justify-start space-x-3">
