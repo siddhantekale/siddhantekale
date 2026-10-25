@@ -176,38 +176,6 @@ Lesson learned: iteration >> planning. Do, think less (not saying don't think bu
     }
   ];
 
-  // Education information
-  const education = [
-    {
-      institution: "University Name",
-      degree: "Master of Science in Computer Science",
-      years: "2019 - 2021",
-      description: "Focused on machine learning and artificial intelligence. Thesis on neural networks for healthcare applications."
-    },
-    {
-      institution: "Another University",
-      degree: "Bachelor of Engineering in Computer Science",
-      years: "2015 - 2019",
-      description: "Strong foundation in algorithms, data structures, and software engineering principles."
-    }
-  ];
-
-  // Career information
-  const career = [
-    {
-      company: "Tech Innovation Corp",
-      position: "Senior Software Engineer",
-      years: "2022 - Present",
-      description: "Leading development of AI-powered healthcare solutions. Implementing machine learning models for medical diagnostics."
-    },
-    {
-      company: "Digital Solutions Inc",
-      position: "Software Developer",
-      years: "2019 - 2022",
-      description: "Developed web applications using React and Redux. Implemented BLE integrations for IoT devices."
-    }
-  ];
-  
   // Navigation items wrapped in useMemo to prevent unnecessary re-renders
   const navItems = useMemo(() => [
     { path: '/about', label: 'About', icon: <User className="w-5 h-5" /> },
@@ -322,231 +290,167 @@ Lesson learned: iteration >> planning. Do, think less (not saying don't think bu
     }
 
     switch (currentPath) {
-      case '/about':
+      case '/about': {
+        const recentPosts = blogPosts.filter(post => post.content !== 'Coming soon...').slice(0, 4);
+        const timeline = [
+          {
+            org: 'Palantir Technologies',
+            roles: [
+              {
+                when: '2022–present · Palo Alto',
+                what: 'Lead Applied AI commercially, focused on healthcare and life sciences.',
+                points: [
+                  "Built Palantir's GxP and 21 CFR Part 11 platform from zero. Large pharma uses it for FDA-grade clinical work, from trial site selection to real-world evidence.",
+                  'Part of the team that built agent-based tools for genetics-led indication expansion: finding new uses for existing drugs.',
+                  "Lead the team that designs the reference architecture Palantir's commercial deployments build on.",
+                ],
+              },
+              { when: '2020–2021 · London', what: "Built the NHS's COVID-19 medical supply chain, allocating ventilators and PPE across 300+ hospitals." },
+              { when: '2019–2020 · New York', what: 'Fraud detection on trillion-row datasets, and applications for cyber defense.' },
+            ],
+          },
+          { org: 'Digital Control', roles: [{ when: '2017–2019 · Seattle', what: 'Embedded Linux and signal processing for directional-drilling guidance.' }] },
+          { org: 'HeliTrak', roles: [{ when: '2017–2018 · Gig Harbor', what: 'Autopilot and safety-trigger software for R22 and R44 helicopters.' }] },
+          { org: 'Purdue University', roles: [{ when: '2013–2016', what: 'B.S., Computer Engineering.' }] },
+        ];
+        const featuredPreview = [
+          {
+            title: 'Online Privacy in the Age of AI',
+            source: 'WSJ · with Jane Horvath, former Chief Privacy Officer at Apple',
+            image: wsjPanelImage,
+            imageClass: 'object-cover',
+            href: 'https://finance.yahoo.com/video/online-privacy-age-ai-183700454.html',
+          },
+          {
+            title: 'A Conversation with a Palantir FDE and Senior Architect',
+            source: 'TSW 2026',
+            image: tsiaConferenceImage,
+            imageClass: 'object-[50%_25%] object-cover',
+            href: 'https://www.youtube.com/watch?v=GXH93BN9YUU',
+          },
+        ];
+        const sectionHeading = 'text-xs font-medium uppercase tracking-wider text-neutral-500 mb-6';
         return (
-          <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-              {/* Left Column - About and Writings */}
-              <div className="space-y-12">
-                {/* About Row */}
-                <div>
-                  <h2 className="text-2xl font-heading font-medium text-neutral-900 mb-6">
-                    About Me
-                  </h2>
-                  <p className="text-neutral-700 text-lg leading-relaxed">
-                    Hello! I'm Sid. Engineer by discipline, Architect (worn many hats) at Palantir. Eternally aching to build. Opinions reflected here are all personal.
+          <div>
+            <div className="grid grid-cols-1 lg:grid-cols-5 gap-14 lg:gap-16">
+              {/* Left column: intro, timeline */}
+              <div className="lg:col-span-3 space-y-14">
+                <section className="space-y-5 text-neutral-700 text-lg leading-relaxed">
+                  <p>
+                    Engineer by discipline. I started out writing software for helicopter autopilots and underground drilling guidance, and since 2019 I've been at Palantir, where I now lead Applied AI commercially, focused on healthcare and life sciences.
                   </p>
-                </div>
-                {/* Writings Row */}
-                <div>
-                  <h3 className="text-xl font-heading font-medium text-neutral-900 mb-8">
-                    Featured Writings
-                  </h3>
-                  <div className="space-y-6">
-                    <div className="border-b border-neutral-100 pb-6">
-                      <h4 className="text-lg font-medium text-neutral-900 mb-2 hover:text-neutral-600 transition-colors cursor-pointer"
-                          onClick={() => navigate('/writings/tell-me-about-yourself')}>
-                        Tell me about yourself
-                      </h4>
-                      <p className="text-neutral-600 mb-3 leading-relaxed">
-                        How to craft a thoughtful and brief response to the most common interview question.
-                      </p>
-                      <button 
-                        onClick={() => navigate('/writings/tell-me-about-yourself')}
-                        className="text-neutral-500 hover:text-neutral-900 text-sm font-medium transition-colors duration-200"
-                      >
-                        Read More →
-                      </button>
-                    </div>
-                    <div className="border-b border-neutral-100 pb-6">
-                      <h4 className="text-lg font-medium text-neutral-900 mb-2 hover:text-neutral-600 transition-colors cursor-pointer"
-                          onClick={() => navigate('/writings/receiving-feedback')}>
-                        Receiving Feedback
-                      </h4>
-                      <p className="text-neutral-600 mb-3 leading-relaxed">
-                        The art of filtering feedback and knowing when to push back.
-                      </p>
-                      <button 
-                        onClick={() => navigate('/writings/receiving-feedback')}
-                        className="text-neutral-500 hover:text-neutral-900 text-sm font-medium transition-colors duration-200"
-                      >
-                        Read More →
-                      </button>
-                    </div>
-                    <div className="border-b border-neutral-100 pb-6">
-                      <h4 className="text-lg font-medium text-neutral-900 mb-2 hover:text-neutral-600 transition-colors cursor-pointer"
-                          onClick={() => navigate('/writings/conducting-meetings')}>
-                        Conducting Meetings
-                      </h4>
-                      <p className="text-neutral-600 mb-3 leading-relaxed">
-                        Directive but malleable.
-                      </p>
-                      <button 
-                        onClick={() => navigate('/writings/conducting-meetings')}
-                        className="text-neutral-500 hover:text-neutral-900 text-sm font-medium transition-colors duration-200"
-                      >
-                        Read More →
-                      </button>
-                    </div>
-                    <div className="border-b border-neutral-100 pb-6">
-                      <h4 className="text-lg font-medium text-neutral-900 mb-2 hover:text-neutral-600 transition-colors cursor-pointer"
-                          onClick={() => navigate('/writings/running-cross-functional-teams')}>
-                        Running (Serving) Cross Functional Teams
-                      </h4>
-                      <p className="text-neutral-600 mb-3 leading-relaxed">
-                        Competence matters. Cultural relativity matters.
-                      </p>
-                      <button 
-                        onClick={() => navigate('/writings/running-cross-functional-teams')}
-                        className="text-neutral-500 hover:text-neutral-900 text-sm font-medium transition-colors duration-200"
-                      >
-                        Read More →
-                      </button>
-                    </div>
-                    <div className="border-b border-neutral-100 pb-6">
-                      <h4 className="text-lg font-medium text-neutral-900 mb-2 hover:text-neutral-600 transition-colors cursor-pointer"
-                          onClick={() => navigate('/writings/good-to-great')}>
-                        Good to Great - Product
-                      </h4>
-                      <p className="text-neutral-600 mb-3 leading-relaxed">
-                        Iteration over planning. Empirical over Abstract
-                      </p>
-                      <button 
-                        onClick={() => navigate('/writings/good-to-great')}
-                        className="text-neutral-500 hover:text-neutral-900 text-sm font-medium transition-colors duration-200"
-                      >
-                        Read More →
-                      </button>
-                    </div>
-                    <div className="pb-6">
-                      <h4 className="text-lg font-medium text-neutral-500 mb-2">
-                        To MCP or not MCP <span className="text-xs text-neutral-400 ml-2">(Coming soon)</span>
-                      </h4>
-                      <p className="text-neutral-500 mb-3 leading-relaxed">
-                        Better to just use APIs?
-                      </p>
-                      <span className="text-neutral-400 text-sm font-medium">
-                        Coming Soon
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {/* Right Column - Timeline */}
-              <div className="space-y-12">
-                {/* Timeline Row */}
-                <div>
-                  <h2 className="text-2xl font-heading font-medium text-neutral-900 mb-8">
-                    Timeline
-                  </h2>
+                  <p>
+                    I'm most interested in how AI shortens the path from data to causal answers, and from there to treatments. Eternally aching to build. Opinions here are my own.
+                  </p>
+                </section>
+
+                <section>
+                  <h2 className={sectionHeading}>Timeline</h2>
                   <div className="space-y-8">
-                    
-                    {/* Palantir Technologies */}
-                    <div>
-                      <h4 className="text-lg font-medium text-neutral-900 mb-4">
-                        Palantir Technologies
-                      </h4>
-                      <div className="space-y-6 ml-4 border-l border-neutral-200 pl-6">
-                        <div>
-                          <p className="text-sm text-neutral-500 font-medium mb-2">2021–2024 • Palo Alto, CA</p>
-                          <p className="text-neutral-700 mb-2">Currently responsible for two key initiatives:</p>
-                          <ul className="text-neutral-600 text-sm space-y-1 ml-4">
-                            <li>• Leading a team of engineers and compliance specialists to develop Palantir's GxP platform for clinical use-cases ranging from site-selection to RWE analysis.</li>
-                            <li>• Leading a team of extremely talented architects to build product demos that show end to end product capability for Palantir's AI Platform.</li>
-                          </ul>
-                        </div>
-                        
-                        <div>
-                          <p className="text-sm text-neutral-500 font-medium mb-2">2020–2021 • London, UK</p>
-                          <p className="text-neutral-600 text-sm">Developed applications for the NHS at the brink of and through COVID-19 that allowed for equitable allocation of ICU and PPE equipment.</p>
-                        </div>
-                        
-                        <div>
-                          <p className="text-sm text-neutral-500 font-medium mb-2">2019–2020 • New York, NY</p>
-                          <ul className="text-neutral-600 text-sm space-y-1 ml-4">
-                            <li>• Developed User applications that are currently thwarting nation state cyber-security attacks.</li>
-                            <li>• Wrote data pipelines and models that detected fraud amongst trillion row transaction datasets.</li>
-                          </ul>
+                    {timeline.map((entry) => (
+                      <div key={entry.org}>
+                        <h3 className="text-lg font-medium text-neutral-900 mb-3">{entry.org}</h3>
+                        <div className="space-y-5 border-l border-neutral-200 pl-6">
+                          {entry.roles.map((role) => (
+                            <div key={role.when}>
+                              <p className="text-sm font-medium text-neutral-500 mb-1">{role.when}</p>
+                              <p className="text-neutral-700 leading-relaxed">{role.what}</p>
+                              {role.points && (
+                                <ul className="mt-3 space-y-2">
+                                  {role.points.map((point) => (
+                                    <li key={point} className="flex gap-3 text-neutral-600 leading-relaxed">
+                                      <span className="text-neutral-300 select-none">–</span>
+                                      <span>{point}</span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              )}
+                            </div>
+                          ))}
                         </div>
                       </div>
-                    </div>
-                    
-                    {/* Digital Control Inc. */}
-                    <div>
-                      <h4 className="text-lg font-medium text-neutral-900 mb-4">
-                        Digital Control Inc.
-                      </h4>
-                      <div className="ml-4 border-l border-neutral-200 pl-6">
-                        <p className="text-sm text-neutral-500 font-medium mb-2">2018–2019 • Seattle, WA</p>
-                        <p className="text-neutral-600 text-sm">Programmed a custom transmitter / receiver for directional drilling.</p>
-                      </div>
-                    </div>
-                    
-                    {/* Helitrak Inc. */}
-                    <div>
-                      <h4 className="text-lg font-medium text-neutral-900 mb-4">
-                        Helitrak Inc.
-                      </h4>
-                      <div className="ml-4 border-l border-neutral-200 pl-6">
-                        <p className="text-sm text-neutral-500 font-medium mb-2">2017–2018 • Gig Harbor, WA</p>
-                        <p className="text-neutral-600 text-sm">Programmed Autopilots and Safety Trigger for the Collective for R22 and R44 Helicopters.</p>
-                      </div>
-                    </div>
+                    ))}
                   </div>
-                </div>
+                </section>
+              </div>
+
+              {/* Right column: featured, writing */}
+              <div className="lg:col-span-2 space-y-14">
+                <section>
+                  <h2 className={sectionHeading}>Featured</h2>
+                  <div className="space-y-6">
+                    {featuredPreview.map((item) => (
+                      <a
+                        key={item.title}
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group block"
+                      >
+                        <div className="overflow-hidden rounded-lg border border-neutral-200">
+                          <img
+                            src={item.image}
+                            alt={item.title}
+                            className={`w-full h-36 ${item.imageClass} group-hover:opacity-90 transition-opacity`}
+                          />
+                        </div>
+                        <h3 className="mt-3 text-base font-medium text-neutral-900 group-hover:text-neutral-600 transition-colors">
+                          {item.title}
+                        </h3>
+                        <p className="text-sm text-neutral-500">{item.source}</p>
+                      </a>
+                    ))}
+                  </div>
+                  <button
+                    onClick={() => navigate('/featured')}
+                    className="mt-4 text-sm font-medium text-neutral-500 hover:text-neutral-900 transition-colors"
+                  >
+                    All talks and demos →
+                  </button>
+                </section>
+
+                <section>
+                  <h2 className={sectionHeading}>Writing</h2>
+                  <div className="divide-y divide-neutral-100">
+                    {recentPosts.map((post) => (
+                      <button
+                        key={post.id}
+                        onClick={() => navigate(`/writings/${post.id}`)}
+                        className="group block w-full text-left py-4 first:pt-0"
+                      >
+                        <h3 className="text-base font-medium text-neutral-900 group-hover:text-neutral-600 transition-colors">
+                          {post.title}
+                        </h3>
+                        <p className="text-sm text-neutral-600 mt-1 leading-relaxed">{post.summary}</p>
+                        <p className="text-xs text-neutral-400 mt-1">{post.date}</p>
+                      </button>
+                    ))}
+                  </div>
+                  <button
+                    onClick={() => navigate('/writings')}
+                    className="mt-4 text-sm font-medium text-neutral-500 hover:text-neutral-900 transition-colors"
+                  >
+                    All writing →
+                  </button>
+                </section>
               </div>
             </div>
           </div>
         );
-        
-      case '/education':
-        return (
-          <div className="bg-white shadow rounded-lg p-6">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Education</h2>
-            <div className="space-y-6">
-              {education.map((edu, index) => (
-                <div key={index} className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
-                  <h3 className="text-xl font-bold text-gray-900">{edu.institution}</h3>
-                  <p className="text-lg font-medium text-gray-600">{edu.degree}</p>
-                  <p className="text-sm text-gray-500 mb-4">{edu.years}</p>
-                  <div className="border-t border-gray-200 my-4"></div>
-                  <p className="text-gray-700">{edu.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        );
-        
-      case '/career':
-        return (
-          <div className="bg-white shadow rounded-lg p-6">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Career</h2>
-            <div className="space-y-6">
-              {career.map((job, index) => (
-                <div key={index} className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
-                  <h3 className="text-xl font-bold text-gray-900">{job.company}</h3>
-                  <p className="text-lg font-medium text-gray-600">{job.position}</p>
-                  <p className="text-sm text-gray-500 mb-4">{job.years}</p>
-                  <div className="border-t border-gray-200 my-4"></div>
-                  <p className="text-gray-700">{job.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        );
-        
+      }
+
       case '/writings':
         return (
           <div className="max-w-3xl mx-auto">
             <div className="mb-12">
               <h2 className="text-3xl font-heading font-medium text-neutral-900 mb-4">Writings</h2>
               <p className="text-lg text-neutral-600">
-                Thoughts on leadership, product development, and building great teams.
+                Notes on leadership, building products and working with people.
               </p>
             </div>
 
             <div className="space-y-8">
-              {blogPosts.map((post, index) => (
+              {blogPosts.filter(post => post.content !== 'Coming soon...').map((post, index) => (
                 <div
                   key={index}
                   className={`border-b border-neutral-100 pb-8 cursor-pointer group ${post.content === 'Coming soon...' ? 'opacity-60' : ''}`}
@@ -612,9 +516,9 @@ Lesson learned: iteration >> planning. Do, think less (not saying don't think bu
                       Online Privacy in the Age of AI
                     </h3>
                     <p className="text-neutral-600 leading-relaxed mb-4">
-                      A compelling panel discussion featuring Jane Horvath (former Chief Privacy Officer at Apple),
-                      WSJ Reporter Chip Cutter, and Siddhant Ekale exploring the evolving landscape of privacy protection
-                      in an AI-driven world. The conversation delves into the balance between innovation and user privacy rights.
+                      A WSJ panel with Jane Horvath, Apple's former Chief Privacy Officer, moderated by WSJ reporter
+                      Chip Cutter. We talked about how companies can build with AI without giving up on privacy, and why
+                      careful evaluation is what makes enterprise AI trustworthy.
                     </p>
                     <div className="flex items-center space-x-4 text-sm text-neutral-500 mb-6">
                       <span className="px-2 py-1 bg-neutral-100 rounded text-xs">WSJ Interview</span>
@@ -656,9 +560,9 @@ Lesson learned: iteration >> planning. Do, think less (not saying don't think bu
                       A Conversation with a Palantir FDE and Senior Architect | TSW 2026
                     </h3>
                     <p className="text-neutral-600 leading-relaxed mb-4">
-                      A candid interview exploring the Forward Deployed Engineer and Senior Architect roles at Palantir,
-                      covering what the work actually looks like, how the roles differ, and lessons learned from building
-                      and deploying software directly alongside customers.
+                      An interview about forward-deployed engineering and architecture at Palantir: what the work
+                      actually looks like, how the roles differ, and what I've learned building software side by side
+                      with customers.
                     </p>
                     <div className="flex items-center space-x-4 text-sm text-neutral-500 mb-6">
                       <span className="px-2 py-1 bg-neutral-100 rounded text-xs">Interview</span>
@@ -683,12 +587,12 @@ Lesson learned: iteration >> planning. Do, think less (not saying don't think bu
 
               {/* AI Assisted Cricket Team Selection */}
               <div className="border border-neutral-200 rounded-lg overflow-hidden hover:border-neutral-300 transition-all duration-200 hover:shadow-md">
-                <div className="flex">
+                <div className="flex flex-col sm:flex-row">
                   <a
                     href="https://www.youtube.com/watch?v=v_P09G4GRY8"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block w-[35%]"
+                    className="block sm:w-[35%]"
                   >
                     <img
                       src={cricketTeamImage}
@@ -696,15 +600,14 @@ Lesson learned: iteration >> planning. Do, think less (not saying don't think bu
                       className="w-full h-full object-cover hover:opacity-90 transition-opacity duration-200 min-h-[200px]"
                     />
                   </a>
-                  <div className="w-[65%] p-8">
+                  <div className="sm:w-[65%] p-8">
                     <div className="mb-6">
                       <h3 className="text-xl font-medium text-neutral-900 mb-3">
                         AI Assisted Cricket Team Selection
                       </h3>
                       <p className="text-neutral-600 leading-relaxed mb-4">
-                        An innovative application of artificial intelligence in sports analytics, demonstrating how machine learning
-                        algorithms can optimize team composition based on player performance metrics, historical data, and strategic considerations.
-                        Featured work by Siddhant Ekale showcasing practical AI implementation in sports.
+                        A side project for fun: using AI to pick a cricket team from player performance and match
+                        history.
                       </p>
                       <div className="flex items-center space-x-4 text-sm text-neutral-500 mb-6">
                         <span className="px-2 py-1 bg-neutral-100 rounded text-xs">Sports Analytics</span>
@@ -729,12 +632,12 @@ Lesson learned: iteration >> planning. Do, think less (not saying don't think bu
 
               {/* Building with AIP: ERP HyperAuto */}
               <div className="border border-neutral-200 rounded-lg overflow-hidden hover:border-neutral-300 transition-all duration-200 hover:shadow-md">
-                <div className="flex">
+                <div className="flex flex-col sm:flex-row">
                   <a
                     href="https://www.youtube.com/watch?v=UDd2kb178Eg"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block w-[35%]"
+                    className="block sm:w-[35%]"
                   >
                     <img
                       src={aipHyperautoImage}
@@ -742,15 +645,14 @@ Lesson learned: iteration >> planning. Do, think less (not saying don't think bu
                       className="w-full h-full object-cover hover:opacity-90 transition-opacity duration-200 min-h-[200px]"
                     />
                   </a>
-                  <div className="w-[65%] p-8">
+                  <div className="sm:w-[65%] p-8">
                     <div className="mb-6">
                       <h3 className="text-xl font-medium text-neutral-900 mb-3">
                         Building with AIP: ERP HyperAuto
                       </h3>
                       <p className="text-neutral-600 leading-relaxed mb-4">
-                        A deep dive into developing enterprise solutions using Palantir's AI Platform (AIP), showcasing the integration
-                        of advanced automation capabilities within ERP systems to streamline business operations and enhance decision-making.
-                        Demonstration by Siddhant Ekale of cutting-edge AI implementation in enterprise environments.
+                        A walkthrough of building on Palantir's AI Platform (AIP) on top of ERP systems: connecting
+                        the data, automating the workflow, and putting decisions in front of the people who make them.
                       </p>
                       <div className="flex items-center space-x-4 text-sm text-neutral-500 mb-6">
                         <span className="px-2 py-1 bg-neutral-100 rounded text-xs">Enterprise Software</span>
@@ -803,10 +705,10 @@ Lesson learned: iteration >> planning. Do, think less (not saying don't think bu
                   className="text-2xl md:text-3xl font-heading font-medium text-neutral-900 mb-2 cursor-pointer hover:text-neutral-600 transition-colors duration-200"
                   onClick={() => navigate('/about')}
                 >
-                  Siddhant Ekale
+                  Sid Ekale
                 </h1>
                 <p className="text-neutral-600 text-sm mb-3">
-                  Engineer • Architect • Builder
+                  Applied AI · Healthcare & Life Sciences
                 </p>
                 <div className="flex justify-center md:justify-start space-x-3">
                   <a 
