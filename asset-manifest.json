@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.d9a219f3.css",
-    "main.js": "/static/js/main.c4467e72.js",
+    "main.css": "/static/css/main.07f7c5d4.css",
+    "main.js": "/static/js/main.1c777e29.js",
     "static/js/453.c4156579.chunk.js": "/static/js/453.c4156579.chunk.js",
     "static/media/WSJPanel.png": "/static/media/WSJPanel.057038939e86fbb53302.png",
     "static/media/AIPHyperauto.png": "/static/media/AIPHyperauto.7b02c3ed6d84dd403a7d.png",
@@ -9,12 +9,12 @@
     "static/media/AI Assisted Cricket Team Selection.png": "/static/media/AI Assisted Cricket Team Selection.7dba6ab549ab7b26e422.png",
     "static/media/profile_picture_linkedin.jpeg": "/static/media/profile_picture_linkedin.264a232229cde8712263.jpeg",
     "index.html": "/index.html",
-    "main.d9a219f3.css.map": "/static/css/main.d9a219f3.css.map",
-    "main.c4467e72.js.map": "/static/js/main.c4467e72.js.map",
+    "main.07f7c5d4.css.map": "/static/css/main.07f7c5d4.css.map",
+    "main.1c777e29.js.map": "/static/js/main.1c777e29.js.map",
     "453.c4156579.chunk.js.map": "/static/js/453.c4156579.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d9a219f3.css",
-    "static/js/main.c4467e72.js"
+    "static/css/main.07f7c5d4.css",
+    "static/js/main.1c777e29.js"
   ]
 }
